@@ -5,6 +5,6 @@ To get the server to run on your local machine, make sure you are running the po
 
 python manage.py runserver
 
-NOTE: You might have to do python3 manage.py.runserver
+NOTE: You might have to do python3 manage.py runserver
 
 Then go to the web browser and go to http://localhost:8000/home/ 
