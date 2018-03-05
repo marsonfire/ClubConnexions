@@ -1,5 +1,6 @@
 # ClubConnexions
 ReadMe for initialization
+
 To get the server to run on your local machine, make sure you are running the powershell/terminal wherever you're storing the files on your machine and type in:
 
 python manage.py runserver
