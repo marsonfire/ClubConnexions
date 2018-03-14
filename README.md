@@ -7,4 +7,6 @@ python manage.py runserver
 
 NOTE: You might have to do python3 manage.py runserver
 
-Then go to the web browser and go to http://localhost:8000/home/ 
+Then go to the web browser and go to http://localhost:8000/ama/
+
+I've done a lot of restarting and redesign since I was thinking of it incorrectly, but I think this is how it'll be now. 
