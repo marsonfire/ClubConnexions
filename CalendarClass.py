@@ -1,17 +1,17 @@
-import EventClass
+from EventClass import Event
 
 class Calendar:
 
-    dictionary
+    dictionary = {'':''}
 
     ## note that two events cannot start at the same time
-    def addEvent(e : Event):
+    def addEvent(self, e):
         key = e.getName
         value = e
-        dictionary[key] = e
-    def deleteEvent(name : str):
-        del dictionary[name]
-    def displayEvent(e : Event) -> str:
+        self.dictionary[key] = e
+    def deleteEvent(self, name : str):
+        del self.dictionary[name]
+    def displayEvent(self, e) -> str:
         date = e.getDate
         month = date[:2]
         day = date[2:4]
