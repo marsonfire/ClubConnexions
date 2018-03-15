@@ -1,56 +1,50 @@
-from enum import Enum
-class Repeat(Enum):
-    NONE = 1
-    WEEKLY = 2
-    BIWEEKLY = 3
-    MONTHLY = 4
+#from enum import Enum
+#class Repeat(Enum):
+#    NONE = 1
+#    WEEKLY = 2
+#    BIWEEKLY = 3
+#    MONTHLY = 4
     
 
-class Event:
+class Event(object):
 
-    name : str
-    date : int
-    time : int
-    location : str
-    description : str
-    repetition:Repeat
-
-    def _init_(self, n:str, d:int, t:int, l:int, d:str, r:Repeat):
-        self.name = n
-        self.date = d
-        self.time = t
-        self.location = l
-        self.description = d
-        self.repetition = r
+    def __init__(self, name:str, date:str, time:str, location:int, description:str = 'null'):
+        self.name = name
+        self.date = date
+        self.time = time
+        self.location = location
+        self.description = description
+        #self.repetition = repitition
 
     def getName(self) -> str:
         return self.name
-    def getDate(self) -> int:
-        return self.date
-    def getTime(self) -> int:
-        return self.time
+    def getDate(self) -> str:
+        date = self.date
+        month = date[:2]
+        day = date[2:4]
+        year = date[4:]
+        return month + '/' + day + '/' + year
+    def getTime(self) -> str:
+        time = self.time
+        hour = time[:2]
+        minute = time[2:]
+        return hour + ':' + minute
     def getLocation(self) -> str:
         return self.location
     def getDescription(self) -> str:
         return self.description
-    def getRepetition(self) -> Repeat:
-        return self.repetition
+    #def getRepetition(self) -> Repeat:
+    #    return self.repetition
     def setName(self, s:str):
         self.name = s
-    def setDate(self, i:int):
+    def setDate(self, i:str):
         self.date = i
-    def setTime(self, i:int):
+    def setTime(self, i:str):
         self.time = i
     def setLocation(self, s:str):
         self.location = s
     def setDescription(self, s:str):
         self.description = s
-    def setRepeat(self, r:Repeat):
-        self.repetition = r
-
-
-
-        ##addEvent(name, date, time, location, description)
-        ##deleteEvent(name)
-        ##editEvent(name)
-        ##displayEvent(name)
+    #def setRepeat(self, r:Repeat):
+    #    self.repetition = r
+        
