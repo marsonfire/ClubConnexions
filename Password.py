@@ -1,17 +1,25 @@
 #Class Password
 # Author Scott Harrington
 # Last Edit 3/14/2018
-class _Password:
-    currentPassword='temp'
-    boolAdmin = False
+class Password:
+    currentPassword=''
+    boolAdmin= False
 
-
+#
+#
+#
+#
+    def __init__(self, c:str):
+        self.currentPassword= c
+        self.boolAdmin = False
+    
 # createPassword
 # take an input password and sets it to be the current password
 # pre - currentPassword is whate ever it currently is 
 # post - currentPassword = what ever password was
     def createPassword(password):
         currentPassword = password
+        return
         
 #edit password
 # edits the current password 
