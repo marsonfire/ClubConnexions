@@ -37,9 +37,9 @@ class Event(object):
     #    return self.repetition
     def setName(self, s:str):
         self.name = s
-    def setDate(self, i:str):
-        self.date = i
-    def setTime(self, i:str):
+    def setDate(self, s:str):
+        self.date = s
+    def setTime(self, s:str):
         self.time = i
     def setLocation(self, s:str):
         self.location = s
@@ -47,4 +47,7 @@ class Event(object):
         self.description = s
     #def setRepeat(self, r:Repeat):
     #    self.repetition = r
-        
+    def printEvent(self):
+        print('name:', self.name, ', date:', self.date,
+              ', time:', self.time, ', location:',
+              self.location, ', description:', self.description)

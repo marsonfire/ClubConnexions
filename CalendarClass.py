@@ -2,24 +2,23 @@ from EventClass import Event
 
 class Calendar:
 
-    dictionary = {'':''}
+    listOfEvents = {}
 
-    ## note that two events cannot start at the same time
+    # note that two events cannot start at the same time
     def addEvent(self, e):
-        key = e.getName
+        key = e.getName()
         value = e
-        self.dictionary[key] = e
-    def deleteEvent(self, name : str):
-        del self.dictionary[name]
+        self.listOfEvents[key] = e
+    def deleteEvent(self, e):
+        del self.listOfEvents[e.getName()]
+    # this displays all the information about the event
     def displayEvent(self, e) -> str:
-        date = e.getDate
-        month = date[:2]
-        day = date[2:4]
-        year = date[4:7]
-        time = e.getTime
-        hour = time[:2]
-        minute = time[2:4]
-        display = ('The Event ' + e.getName + ' is on ' + month + '/' + day + '/'
-                   + '/' + year + ' at ' + hour + ':' + minute + ' in ' + e.getLocation
-                   + '. The following is a description of the event: ' + e.getDescription)
+        display = ('The Event ' + e.getName() + ' is on ' + e.getDate()
+                   + ' at ' + e.getTime() + ' in ' + e.getLocation() +
+                   '. The following is a description of the event: ' +
+                   e.getDescription())
         return display
+    # this prints out each of the events in the calendar
+    def printList(self):
+        for key in self.listOfEvents:
+            self.listOfEvents[key].printEvent()
