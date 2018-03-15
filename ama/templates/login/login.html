@@ -1,12 +1,17 @@
 <html>
 <head>
-<title>Login Page</title>
+<title>Admin Login Page</title>
 </head>
 <body>
 
-<h1>This is a Heading on the login page</h1>
+<h1>Admin Login</h1>
 <p>
-	You're on the login page<br/>
+	<a href="{% url 'ama:home' %}">Home</a><br/>
+	<a href="{% url 'ama:calendar' %}">Calendar</a><br/>
+	<a href="{% url 'ama:documents'%}">Documents</a><br/>
+	<a href="{% url 'ama:officers' %}">Club Officers</a><br/>
+	<a href="{% url 'ama:members'%}">Club Members</a><br/>
+	<a href="{% url 'ama:login' %}">Admin Login</a><br/>
 	<a href="{% url 'ama:index' %}">This goes back to the original landing page</a>
 </p>
 
