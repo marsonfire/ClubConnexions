@@ -1,19 +1,36 @@
 <html>
+<style>
+form{
+	display: inline;
+}
+</style>
 <head>
-<title>OCCIFERS Page</title>
+	<title>Oficers Page</title>
 </head>
 <body>
+</body>
+</html>
 
 <h1>Officers</h1>
-<p>
-	<a href="{% url 'ama:home' %}">Home</a><br/>
-	<a href="{% url 'ama:calendar' %}">Calendar</a><br/>
-	<a href="{% url 'ama:documents'%}">Documents</a><br/>
-	<a href="{% url 'ama:officers' %}">Club Officers</a><br/>
-	<a href="{% url 'ama:members'%}">Club Members</a><br/>
-	<a href="{% url 'ama:login' %}">Admin Login</a><br/>
-	<a href="{% url 'ama:index' %}">This goes back to the original landing page</a>
-</p>
-
+<div style="text-align: center;">
+	<form action="{% url 'ama:home' %}">
+		<input type ="submit" value="Home"/>
+	</form>
+	<form action="{% url 'ama:calendar' %}">
+		<input type="submit" value="Calendar">
+	</form>
+	<form action="{% url 'ama:documents' %}">
+		<input type="submit" value="Documents">
+	</form>
+	<form action="{% url 'ama:officers' %}">
+		<input type="submit" value="Club Officers">
+	</form>
+	<form action="{% url 'ama:members' %}">
+		<input type="submit" value="Club Members">
+	</form>
+	<form action="{% url 'ama:login' %}">
+		<input type="submit" value="Admin Login">
+	</form>
+</div>
 </body>
 </html>
