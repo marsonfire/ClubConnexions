@@ -1,8 +1,6 @@
 <html>
 <style>
-form{
-	display: inline;
-}
+
 </style>
 <head>
 	<title>Documents Page</title>
@@ -11,24 +9,24 @@ form{
 </body>
 </html>
 
-<h1>Documents</h1>
+<h1 style="text-align: center;">Documents</h1>
 <div style="text-align: center;">
-	<form action="{% url 'ama:home' %}">
+	<form style="display: inline;" action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>
-	<form action="{% url 'ama:calendar' %}">
+	<form style="display: inline;" action="{% url 'ama:calendar' %}">
 		<input type="submit" value="Calendar">
 	</form>
-	<form action="{% url 'ama:documents' %}">
+	<form style="display: inline;" action="{% url 'ama:documents' %}">
 		<input type="submit" value="Documents">
 	</form>
-	<form action="{% url 'ama:officers' %}">
+	<form style="display: inline;" action="{% url 'ama:officers' %}">
 		<input type="submit" value="Club Officers">
 	</form>
-	<form action="{% url 'ama:members' %}">
+	<form style="display: inline;" action="{% url 'ama:members' %}">
 		<input type="submit" value="Club Members">
 	</form>
-	<form action="{% url 'ama:login' %}">
+	<form style="display: inline;" action="{% url 'ama:login' %}">
 		<input type="submit" value="Admin Login">
 	</form>
 </div>

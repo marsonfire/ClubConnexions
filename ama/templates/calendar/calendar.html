@@ -3,6 +3,9 @@
 form{
 	display: inline;
 }
+div{
+	text-align: center;
+}
 </style>
 <head>
 	<title>Calendar Page</title>
@@ -11,8 +14,8 @@ form{
 </body>
 </html>
 
-<h1>Calendar</h1>
-<div style="text-align: center;">
+<h1 style="text-align: center;">Calendar</h1>
+<div>
 	<form action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>
@@ -32,5 +35,19 @@ form{
 		<input type="submit" value="Admin Login">
 	</form>
 </div>
+<br>
+<div>
+	<form action="{% url 'ama:add-event' %}">
+		{% if enable %}
+		<input type="submit" value="Add Event">
+		{% else %}
+		<input type="submit" value="Add Event" disabled>
+		{% endif %}
+	</form>
+</div>
+<p style="text-align: center;">
+	There are no events right now because we haven't added any functionality to that!
+</p>
+<!-- put the list of events here -->
 </body>
 </html>

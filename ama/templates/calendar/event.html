@@ -1,16 +1,18 @@
 <html>
 <style>
-
+div{
+	text-align: center;
+}
 </style>
 <head>
-	<title>Home Page</title>
+	<title>Add Event</title>
 </head>
 <body>
 </body>
 </html>
 
-<h1 style="text-align: center;">Home</h1>
-<div style="text-align: center;">
+<h1 style="text-align: center;">Add Event</h1>
+<div>
 	<form style="display: inline;" action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>
@@ -30,5 +32,19 @@
 		<input type="submit" value="Admin Login">
 	</form>
 </div>
+<br>
+<div>
+	<form>
+	  	Name <input type="text" name="name"><br><br>
+	  	Date <input type="text" name="date"><br><br>
+	  	Time <input type="text" name="time"><br><br>
+	  	Location <input type="text" name="location"><br><br>
+	  	Description <br>
+	  	<textarea name="description" cols="80" rows="15"></textarea><br><br>
+	  	<input type="submit" value="Create and add Event">
+	</form> 
+</div>
+
+
 </body>
 </html>
