@@ -1,7 +1,10 @@
-#Class will import member class and this Members list will have getters and setters for
-#the whole list of members
+#Class Member will construct a "member" to be added to our dictionary, each member must have some basic information over themselves
 import unittest
 import operator
+
+
+memberList = {}#This is our list in the form of a dictionary
+
 
 class Member(object):
 	allCardNumber = 0
@@ -30,12 +33,17 @@ memberList = {}#This is our list in the form of a dictionary
 
 #To add/remove to the list we will have the all card number as the key and MemberClass(obj) is the value
 
-def addToList(self, allCardNumber, lastName, firstName, gradYear, position, email, major, minor):
+def testMakeMember(allCardNumber, lastName, firstName, gradYear, position, email, major, minor):
+	member = Member(allCardNumber, lastName, firstName, gradYear, position, email, major, minor)
+	return member
+
+
+def addToList(allCardNumber, lastName, firstName, gradYear, position, email, major, minor):
 	member = Member(allCardNumber, lastName, firstName, gradYear, position, email, major, minor)
 	memberList[allCardNumber] = member
 
-def removeFromList(self, allCardNumber):
+def removeFromList(allCardNumber):
 	del memberList[allCardNumber]
 
-def printList(self):
+def printList():
 	print memberList	
