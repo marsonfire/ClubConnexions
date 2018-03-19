@@ -34,7 +34,8 @@ div{
 </div>
 <br>
 <div>
-	<form>
+	<form method="POST" action="/ama/calendar/">
+		{% csrf_token %}
 	  	Name <input type="text" name="name"><br><br>
 	  	Date <input type="text" name="date"><br><br>
 	  	Time <input type="text" name="time"><br><br>
