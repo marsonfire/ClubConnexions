@@ -8,7 +8,8 @@
 
 class Event(object):
 
-    def __init__(self, name:str, date:str, time:str, location:int, description:str = 'null'):
+    def __init__(self, name:str = 'null', date:str = 'null', time:str = 'null'
+                 , location:int = 'null', description:str = 'null'):
         self.name = name
         self.date = date
         self.time = time
