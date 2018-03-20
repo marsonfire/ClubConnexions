@@ -1,7 +1,11 @@
 # ClubConnexions
 ReadMe for initialization
 
-To get the server to run on your local machine, make sure you are running the powershell/terminal wherever you're storing the files on your machine and type in:
+The master branch is fine to use. 
+
+To get the server to run on your local machine, make sure you are running the powershell/terminal wherever you cloned the files on your machine and type in:
+
+NOTE: Make sure you are in the directory where manage.py is in!!!!
 
 python manage.py runserver
 
@@ -9,4 +13,4 @@ NOTE: You might have to do python3 manage.py runserver
 
 Then go to the web browser and go to http://localhost:8000/ama/
 
-I've done a lot of restarting and redesign since I was thinking of it incorrectly, but I think this is how it'll be now. 
+After getting to the landing page, you can navigate to another page and navigate throughout the web app from there by clicking the buttons at the top of the page. The only page with anything to it is the Calendar Page. You can go to "Add Event" and type into the text boxes, but you cannot actually create an event yet. 
