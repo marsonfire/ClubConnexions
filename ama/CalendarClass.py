@@ -20,7 +20,10 @@ class Calendar:
         return display
     # this prints out each of the events in the calendar
     def printList(self):
+        i = 1
         for key in self.listOfEvents:
+            print('Event #' + str(i) + ' is: ')
             self.listOfEvents[key].printEvent()
+            i = i + 1
 
 
