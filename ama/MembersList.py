@@ -33,10 +33,6 @@ memberList = {}#This is our list in the form of a dictionary
 
 #To add/remove to the list we will have the all card number as the key and MemberClass(obj) is the value
 
-def testMakeMember(allCardNumber, lastName, firstName, gradYear, position, email, major, minor):
-	member = Member(allCardNumber, lastName, firstName, gradYear, position, email, major, minor)
-	return member
-
 
 def addToList(allCardNumber, lastName, firstName, gradYear, position, email, major, minor):
 	member = Member(allCardNumber, lastName, firstName, gradYear, position, email, major, minor)
@@ -44,6 +40,21 @@ def addToList(allCardNumber, lastName, firstName, gradYear, position, email, maj
 
 def removeFromList(allCardNumber):
 	del memberList[allCardNumber]
+
+#Looking up information of a club member will be done with the All Card Number
+
+def getLastName(allCardNUmber):
+
+def getFirstName(allCardNumber):
+
+def getGradYear(allCardNumber):
+
+def getEmail(allCardNumber):
+
+def getMajor(allCardNumber):
+
+def getMinor(allCardNumber):
+        
 
 def printList():
 	print memberList	
