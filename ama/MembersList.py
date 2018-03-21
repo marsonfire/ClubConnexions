@@ -1,4 +1,7 @@
-#Class Member will construct a "member" to be added to our dictionary, each member must have some basic information over themselves
+#Author EJ Cervantes
+#March 2018
+#Member class describes what a member is made of and what inputs we require to make a member. 
+#memberList is our dictionary. We use their all card as the key (because everyone has a unique all card number. We will have an object Member as our value. Retrieving information from a student will require their all card number
 import unittest
 import operator
 
