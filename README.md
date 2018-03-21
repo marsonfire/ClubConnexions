@@ -1,13 +1,15 @@
 # ClubConnexions
 ReadMe for initialization
 
-The master branch is fine to use. 
+Use the IterationOne branch.
+
+Django has to be installed and working on the computer you're using.
 
 To get the server to run on your local machine, make sure you are running the powershell/terminal wherever you cloned the files on your machine and type in:
 
-NOTE: Make sure you are in the directory where manage.py is in!!!!
-
 python manage.py runserver
+
+NOTE: Make sure you are in the directory where manage.py is in!!!!
 
 NOTE: You might have to do python3 manage.py runserver
 
