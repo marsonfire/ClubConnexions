@@ -1,10 +1,8 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
-from django.shortcuts import render_to_response
-from django.template import RequestContext
 
-from ama.EventClass import *
+from .models import Event
 
 #this means the admin is logged in 
 #it's really just for testing right now
@@ -17,26 +15,24 @@ def home(request):
 	return render(request, 'home/home.html')
 
 def calendar(request):
+	if(request.method == 'POST'):
+		eventName = request.POST.get('eventName', None)
+		eventDate = request.POST.get('eventDate', None)
+		eventTime = request.POST.get('eventTime', None)
+		eventLocation = request.POST.get('eventLocation', None)
+		eventDescription = request.POST.get('eventDescription', None)
+		e = Event.objects.create(eventName=eventName, eventDate=eventDate, eventTime=eventTime, eventLocation=eventLocation, eventDescription=eventDescription)
+		allEvents = Event.objects.all()
+		context = {'enable':enable, 'e':e, 'allEvents':allEvents}
+		return render(request, 'calendar/calendar.html', context)
+
 	#send to HTML if admin is logged in
-	context = {'enable':enable}
+	allEvents = Event.objects.all()
+	context = {'enable':enable, 'allEvents':allEvents}
 	return render(request, 'calendar/calendar.html', context)
 
 def event(request):
-	context = RequestContext(request)
-	if (request.method == 'POST'):
-		#getting it from the webpage
-		form = Event(data = request.POST)
-		name = request.POST.get('name')
-		date = request.POST.get('date')
-		time = request.POST.get('time')
-		location = request.POST.get('location')
-		description = request.POST.get('description')
-		#creating an event object
-		e = Event(name, date, time, location, description)
-		#return render_to_response('calendar/event.html', {'name':name}, context)
-		return render_to_response('calendar/event.html', {'name':name}, context)
-	else:
-		return render(request, 'calendar/event.html')
+	return render(request, 'calendar/event.html')
 
 def documents(request):
 	return render(request, 'documents/documents.html')
