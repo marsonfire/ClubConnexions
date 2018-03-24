@@ -46,7 +46,13 @@ div{
 	</form>
 </div>
 <p style="text-align: center;">
-	There are no events right now because we haven't added any functionality to that!
+	{% for e in allEvents %}
+		{{e.eventName}}<br>
+		{{e.eventDate}}<br>
+		{{e.eventTime}}<br>
+		{{e.eventLocation}}<br>
+		{{e.eventDescription}}<br>
+	{% endfor %}
 </p>
 <!-- put the list of events here -->
 </body>

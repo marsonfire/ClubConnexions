@@ -34,17 +34,16 @@ div{
 </div>
 <br>
 <div>
-	<form>
-	  	Name <input type="text" name="name"><br><br>
-	  	Date <input type="text" name="date"><br><br>
-	  	Time <input type="text" name="time"><br><br>
-	  	Location <input type="text" name="location"><br><br>
+	<form action="/ama/calendar/" method="POST">
+		{% csrf_token %}
+	  	Name <input type="text" name="eventName"><br><br>
+	  	Date <input type="text" name="eventDate"><br><br>
+	  	Time <input type="text" name="eventTime"><br><br>
+	  	Location <input type="text" name="eventLocation"><br><br>
 	  	Description <br>
-	  	<textarea name="description" cols="80" rows="15"></textarea><br><br>
+	  	<textarea name="eventDescription" cols="80" rows="15"></textarea><br><br>
 	  	<input type="submit" value="Create and add Event">
 	</form> 
 </div>
-
-
 </body>
 </html>
