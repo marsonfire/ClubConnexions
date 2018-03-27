@@ -3,6 +3,7 @@ from django.template import loader
 from django.shortcuts import render
 
 from .models import Event
+from .models import Officers
 
 #this means the admin is logged in 
 #it's really just for testing right now
@@ -38,7 +39,21 @@ def documents(request):
 	return render(request, 'documents/documents.html')
 
 def officers(request):
-	return render(request, 'officers/officers.html')
+	if(request.method == 'POST'):
+		officerFirstName = request.POST.get('officerFirstName', None)
+		officerLastName = request.POST.get('officerLastName', None)
+		officerPosition = request.POST.get('officerPosition', None)
+		o = Officers.objects.create(officerFirstName=officerFirstName, officerLastName=officerLastName, officerPosition=officerPosition)
+		allOfficers = Event.objects.all()
+		context = {'enable':enable, 'o':o, 'allOfficers':allOfficers}
+		return render(request, 'calendar/calendar.html', context)
+		
+	allOfficers = Officers.objects.all()
+	context = {'enable':enable, 'allOfficers':allOfficers}
+	return render(request, 'officers/officers.html', context)
+
+def addOfficer(request):
+	return render(request, 'officers/addOfficer.html')
 
 def members(request):
 	return render(request, 'members/members.html')

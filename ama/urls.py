@@ -10,6 +10,7 @@ urlpatterns = [
     path('calendar/add-event', views.event, name = 'add-event'),
     path('documents/', views.documents, name = 'documents'),
     path('officers/', views.officers, name = 'officers'),
+    path('officers/add-officer', views.addOfficer, name = 'add-officer'),
     path('members/', views.members, name = 'members'),
     path('login/', views.login, name = 'login'),
 ]

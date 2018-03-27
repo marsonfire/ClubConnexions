@@ -29,5 +29,24 @@ class Event(models.Model):
 	def _str_(self):
 		return self.eventDescription
 
+class Officers(models.Model):
+	officerFirstName = models.CharField(max_length=50)
+	officerLastName = models.CharField(max_length=50)
+	officerPosition = models.CharField(max_length=50)
+
+	@classmethod
+	def create(cls, officerFirstName, officerLastName, officerPosition):
+		o = cls(officerFirstName, officerLastName, officerPosition)
+		return o
+
+	def _str_(self):
+		return self.officerFirstName
+
+	def _str_(self):
+		return self.officerLastName
+
+	def _str_(self):
+		return self.officerPosition
+
 
 
