@@ -44,16 +44,35 @@ div{
 		<input type="submit" value="Add Event" disabled>
 		{% endif %}
 	</form>
+	<form action="/ama/calendar/" method="POST">
+		{% csrf_token %}
+		{% if enable %}
+		<input type="submit" value="Delete Event:" name="deleteEvent">
+		<input type="text" name="eventName">
+		{% else %}
+		<input type="submit" value="Delete Event:" disabled>
+		{% endif %}
+	</form>
+	<form action="/ama/calendar/" method="GET">
+		{% if enable %}
+		<input type="submit" value="Delete All Events" name="deleteAllEvents">
+		{% else %}
+		<input type="submit" value="Delete All Events" disabled>
+		{% endif %}
+	</form>
 </div>
+<div>
 <p style="text-align: center;">
 	{% for e in allEvents %}
-		{{e.eventName}}<br>
-		{{e.eventDate}}<br>
-		{{e.eventTime}}<br>
-		{{e.eventLocation}}<br>
-		{{e.eventDescription}}<br><br>
+		<b>Name:</b> {{e.eventName}}<br>
+		<b>Date:</b> {{e.eventDate}}<br>
+		<b>Time:</b> {{e.eventTime}}<br>
+		<b>Location:</b> {{e.eventLocation}}<br>
+		<b>Description:</b> <br>
+		{{e.eventDescription}}<br>
+		<br><br>
 	{% endfor %}
 </p>
-<!-- put the list of events here -->
+</div>
 </body>
 </html>

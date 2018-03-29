@@ -16,19 +16,24 @@ def home(request):
 	return render(request, 'home/home.html')
 
 def calendar(request):
-	if(request.method == 'POST'):
-		eventName = request.POST.get('eventName', None)
-		eventDate = request.POST.get('eventDate', None)
-		eventTime = request.POST.get('eventTime', None)
-		eventLocation = request.POST.get('eventLocation', None)
-		eventDescription = request.POST.get('eventDescription', None)
+	allEvents = Event.objects.all()
+	if(request.POST.get('addEvent')):
+		eventName = request.POST.get('eventName', None).strip()
+		eventDate = request.POST.get('eventDate', None).strip()
+		eventTime = request.POST.get('eventTime', None).strip()
+		eventLocation = request.POST.get('eventLocation', None).strip()
+		eventDescription = request.POST.get('eventDescription', None).strip()
 		e = Event.objects.create(eventName=eventName, eventDate=eventDate, eventTime=eventTime, eventLocation=eventLocation, eventDescription=eventDescription)
-		allEvents = Event.objects.all()
 		context = {'enable':enable, 'e':e, 'allEvents':allEvents}
 		return render(request, 'calendar/calendar.html', context)
-
-	#send to HTML if admin is logged in
-	allEvents = Event.objects.all()
+	elif(request.GET.get('deleteAllEvents')):
+		for e in allEvents:
+			e.delete()
+	elif(request.POST.get('deleteEvent')):
+		eventName = request.POST.get('eventName', None).strip()
+		for e in allEvents:
+			if(e.eventName == eventName):
+				e.delete()
 	context = {'enable':enable, 'allEvents':allEvents}
 	return render(request, 'calendar/calendar.html', context)
 
