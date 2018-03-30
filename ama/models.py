@@ -48,5 +48,22 @@ class Officers(models.Model):
 	def _str_(self):
 		return self.officerPosition
 
+class Members(models.Model):
+	memberFirstName = models.CharField(max_length=50)
+	memberLastName = models.CharField(max_length=50)
+	officerPosition = models.CharField(max_length=50)
+
+	@classmethod
+	def create(cls, officerFirstName, officerLastName, officerPosition):
+		o = cls(officerFirstName, officerLastName, officerPosition)
+		return o
+
+	def _str_(self):
+		return self.memberFirstName
+
+	def _str_(self):
+		return self.memberLastName
+
+
 
 

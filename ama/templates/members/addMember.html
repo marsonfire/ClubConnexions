@@ -1,21 +1,18 @@
 <html>
 <style>
-form{
-	display: inline;
-}
 div{
 	text-align: center;
 }
 </style>
 <head>
-	<title>Club Members Page</title>
+	<title>Add Member</title>
 </head>
 <body>
 </body>
 </html>
 
-<h1 style="text-align: center;">Club Members</h1>
-<div style="text-align: center;">
+<h1 style="text-align: center;">Add Member</h1>
+<div>
 	<form style="display: inline;" action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>
@@ -37,19 +34,12 @@ div{
 </div>
 <br>
 <div>
-	<form action="{% url 'ama:add-member' %}">
-		{% if enable %}
-		<input type="submit" value="Add Member">
-		{% else %}
-		<input type="submit" value="Add Member" disabled>
-		{% endif %}
-	</form>
+	<form action="/ama/members/" method="POST">
+		{% csrf_token %}
+	  	First Name <input type="text" name="memberFirstName"><br><br>
+	  	Last Name <input type="text" name="memberLastName"><br><br>
+	  	<input type="submit" value="Create and add Member">
+	</form> 
 </div>
-<p style="text-align: center;">
-	{% for m in allMembers %}
-		{{m.memberFirstName}}
-		{{m.memberLastName}}<br><br>
-	{% endfor %}
-</p>
 </body>
 </html>
