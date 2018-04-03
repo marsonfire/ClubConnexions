@@ -79,4 +79,8 @@ def addMember(request):
 
 def login(request):
 	return render(request, 'login/login.html')
+def password(request):
+        return render(request, 'login/password.html')
 
+def scott(request):
+        return render(request, 'scott/scott.html')
