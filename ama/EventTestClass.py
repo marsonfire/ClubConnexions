@@ -76,6 +76,9 @@ class PrintTests(unittest.TestCase):
         self.e = Event(self.name, self.date, self.time, self.location,
                        self.description)
         
+if __name__ == '__main__':
+    unittest.main()
+
 ##    def testPrint(self):
 ##        #expected = ('name:', self.name, ', date:', self.date,
 ##         #     ', time:', self.time, ', location:',

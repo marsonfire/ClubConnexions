@@ -12,6 +12,13 @@ class CalendarTest(unittest.TestCase):
     def testAdd(self):
         e = Event('Group Meeting','03152018','1830',
                   'Hailstones 19','meeting to work on project')
+        self.c.addEvent(e)
+        expected = {'Group Meeting': e}
+        self.assertEqual(expected, self.c.listOfEvents)
+
+    def testPrint(self):
+        e = Event('Group Meeting','03152018','1830',
+                  'Hailstones 19','meeting to work on project')
         f = Event('Software Engineering Class','03202018','1000',
                   'Alter 208')
         self.c.addEvent(e)
@@ -34,3 +41,14 @@ class CalendarTest(unittest.TestCase):
                     'the event: meeting to work on project')
         result = self.c.displayEvent(e)
         self.assertEqual(expected, result)
+
+    def testDelete(self):
+        e = Event('Software Engineering Class','03202018','1000',
+                  'Alter 208')
+        self.c.addEvent(e)
+        expected = None
+        result = self.c.printList()
+        self.assertEqual(expected, result)
+
+if __name__ == '__main__':
+    unittest.main()
