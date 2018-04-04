@@ -49,6 +49,6 @@ class Event(object):
     #def setRepeat(self, r:Repeat):
     #    self.repetition = r
     def printEvent(self):
-        print('name:', self.getName(), ', date:', self.getDate(),
-              ', time:', self.getTime(), ', location:',
-              self.getLocation(), ', description:', self.getDescription())
+        print('name:', self.name, ', date:', self.date,
+              ', time:', self.time, ', location:',
+              self.location, ', description:', self.description)

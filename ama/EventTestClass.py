@@ -1,4 +1,3 @@
-
 import unittest
 from EventClass import Event
 
@@ -75,16 +74,19 @@ class PrintTests(unittest.TestCase):
         self.description = 'Xavier vs. Texas Southern in NCAA First Round'
         self.e = Event(self.name, self.date, self.time, self.location,
                        self.description)
-        
-if __name__ == '__main__':
-    unittest.main()
+##        self.e = Event('Basketball Game', '03162018', '1940', 'Bridgestone Arena',
+##                       'Xavier vs. Texas Southern in NCAA First Round')
 
-##    def testPrint(self):
-##        #expected = ('name:', self.name, ', date:', self.date,
-##         #     ', time:', self.time, ', location:',
-##          #    self.location, ', description:', self.description)
-##        expected = ('name: Basketball Game , date: 03/16/2018 , '
-##                    'time: 19:40 , location: Bridgestone Arena , '
-##                    'description: Xavier vs. Texas Southern in '
-##                    'NCAA First Round')
-##        self.assertEqual(expected, self.e.printEvent())
+    def testPrint(self):
+        #expected = ('name:', self.name, ', date:', self.date,
+         #     ', time:', self.time, ', location:',
+          #    self.location, ', description:', self.description)
+        expected = print('name: Basketball Game , date: 03/16/2018 , '
+                    'time: 19:40 , location: Bridgestone Arena , '
+                    'description: Xavier vs. Texas Southern in '
+                    'NCAA First Round')
+        actual = self.e.printEvent()
+        self.assertEqual(expected, actual)
+
+if __name__ == '__main__':
+    unittest.main()        
