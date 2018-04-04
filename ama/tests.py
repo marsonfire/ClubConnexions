@@ -52,3 +52,4 @@ class MembersModelTest(TestCase):
 	def test_getLastName(self):
 		m = Members(memberLastName="lastname")
 		self.assertEqual(m.memberLastName, m.getLastName())
+
