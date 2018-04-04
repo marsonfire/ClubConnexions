@@ -79,3 +79,6 @@ class PasswordTest7(unittest.TestCase):
         self.test= self.p.enableAdmin('notPass')
         expected = False
         self.assertEqual(self.test, expected)
+
+if __name__ == '__main__':
+    unittest.main()

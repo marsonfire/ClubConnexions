@@ -47,36 +47,36 @@ def removeFromList(allCardNumber):
 
 def getLastName(allCardNumber):
         memberLookUp = memberList[allCardNumber]
-        print "Last Name is: "
-        print memberLookUp.lastName
+        print ("Last Name is: ")
+        print (memberLookUp.lastName)
 
 def getFirstName(allCardNumber):
         memberLookUp = memberList[allCardNumber]
-        print "First Name is: "
-        print memberLookUp.firstName
+        print ("First Name is: ")
+        print (memberLookUp.firstName)
 
 def getGradYear(allCardNumber):
         memberLookUp = memberList[allCardNumber]
-        print "Graduation year is: "
-        print memberLookUp.gradYear
+        print ("Graduation year is: ")
+        print (memberLookUp.gradYear)
 
 def getEmail(allCardNumber):
         memberLookUp = memberList[allCardNumber]
-        print "Email is: "
-        print memberLookUp.email
+        print ("Email is: ")
+        print (memberLookUp.email)
 
 def getMajor(allCardNumber):
         memberLookUp = memberList[allCardNumber]
-        print "Major is: "
-        print memberLookUp.major
+        print ("Major is: ")
+        print (memberLookUp.major)
 
 def getMinor(allCardNumber):
         memberLookUp = memberList[allCardNumber]
-        print "Minor is: "
-        print memberLookUp.minor
+        print ("Minor is: ")
+        print (memberLookUp.minor)
 
 def printList():
-        print memberList        
+        print (memberList)       
 
 
 #Unit test that adds one person into dictionary.
