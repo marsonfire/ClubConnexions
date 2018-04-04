@@ -44,6 +44,22 @@ div{
 		<input type="submit" value="Add Officer" disabled>
 		{% endif %}
 	</form>
+	<form action="/ama/officers/" method="POST">
+		{% csrf_token %}
+		{% if enable %}
+		<input type="submit" value="Delete Officer:" name="deleteOfficer">
+		<input type="text" name="officerName">
+		{% else %}
+		<input type="submit" value="Delete Officer" disabled>
+		{% endif %}
+	</form>
+	<form action="/ama/officers/" method="GET">
+		{% if enable %}
+		<input type="submit" value="Delete All Officers" name="deleteAllOfficers">
+		{% else %}
+		<input type="submit" value="Delete All Officers" disabled>
+		{% endif %}
+	</form>
 </div>
 <p style="text-align: center;">
 	{% for o in allOfficers %}

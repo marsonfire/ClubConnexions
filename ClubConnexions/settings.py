@@ -38,17 +38,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_nose',
 ]
 
-# Use nose to run all tests
-TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
-
-# Tell nose to measure coverage on the 'foo' and 'bar' apps
-NOSE_ARGS = [
+# so if you don't have the nose installed on your face (PC), 
+# now you can still run the test server on your face
+try: 
+	import django_nose
+except ImportError:
+	pass
+else:
+	TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+	NOSE_ARGS = [
     '--with-coverage',
     '--cover-package=ama',
-]
+	]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

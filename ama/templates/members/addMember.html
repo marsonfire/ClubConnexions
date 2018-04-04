@@ -36,9 +36,9 @@ div{
 <div>
 	<form action="/ama/members/" method="POST">
 		{% csrf_token %}
-	  	First Name <input type="text" name="memberFirstName"><br><br>
-	  	Last Name <input type="text" name="memberLastName"><br><br>
-	  	<input type="submit" value="Create and add Member">
+	  	First Name <input type="text" name="memberFirstName" required><br><br>
+	  	Last Name <input type="text" name="memberLastName" required><br><br>
+	  	<input type="submit" name="addMember" value="Create and add Member">
 	</form> 
 </div>
 </body>

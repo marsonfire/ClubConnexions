@@ -36,10 +36,10 @@ div{
 <div>
 	<form action="/ama/officers/" method="POST">
 		{% csrf_token %}
-	  	First Name <input type="text" name="officerFirstName"><br><br>
-	  	Last Name <input type="text" name="officerLastName"><br><br>
-	  	Position <input type="text" name="officerPosition"><br><br>
-	  	<input type="submit" value="Create and add Officer">
+	  	First Name <input type="text" name="officerFirstName" required><br><br>
+	  	Last Name <input type="text" name="officerLastName" required><br><br>
+	  	Position <input type="text" name="officerPosition" required><br><br>
+	  	<input type="submit" name="addOfficer" value="Create and add Officer">
 	</form> 
 </div>
 </body>
