@@ -1,3 +1,7 @@
+# Class: Event Test
+# Author: Kara Schatz
+# Last Edit: 4/03/2018
+
 import unittest
 from EventClass import Event
 

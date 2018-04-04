@@ -1,3 +1,7 @@
+# Class: Event
+# Author: Kara Schatz
+# Last Edit: 4/03/2018
+
 #from enum import Enum
 #class Repeat(Enum):
 #    NONE = 1

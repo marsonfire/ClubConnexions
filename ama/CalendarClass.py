@@ -1,3 +1,7 @@
+# Class: Calendar
+# Author: Kara Schatz
+# Last Edit: 4/03/2018
+
 from EventClass import Event
 
 class Calendar:

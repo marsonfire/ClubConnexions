@@ -1,3 +1,7 @@
+# Class: Calendar Test
+# Author: Kara Schatz
+# Last Edit: 4/03/2018
+
 from CalendarClass import Calendar
 from EventClass import Event
 import unittest
