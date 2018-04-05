@@ -9,6 +9,9 @@ class Event(models.Model):
 	eventLocation = models.CharField(max_length=200)
 	eventDescription = models.CharField(max_length=1000)
 
+	class Meta:
+		ordering = ['eventDate', 'eventTime']
+
 	def getName(self):
 		name = self.eventName
 		return name
