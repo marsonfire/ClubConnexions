@@ -53,6 +53,9 @@ class Home(models.Model):
 	number = models.CharField(max_length=1)
 	description = models.CharField(max_length=1000)
 
+	def getNumber(self):
+		return self.number
+
 	def getDescription(self):
 		return self.description
 

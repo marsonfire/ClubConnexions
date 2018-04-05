@@ -3,6 +3,7 @@ from django.test import TestCase
 from .models import Event
 from .models import Officers
 from .models import Members
+from .models import Home
 
 # Create your tests here.
 
@@ -53,3 +54,13 @@ class MembersModelTest(TestCase):
 		m = Members(memberLastName="lastname")
 		self.assertEqual(m.memberLastName, m.getLastName())
 
+
+class HomeModelTest(TestCase):
+
+	def test_getNumber(self):
+		h = Home(number="1")
+		self.assertEqual(h.number, h.getNumber())
+
+	def test_getDescription(self):
+		h = Home(description="TEST description")
+		self.assertEqual(h.description, h.getDescription())

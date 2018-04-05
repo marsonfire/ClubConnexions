@@ -26,8 +26,8 @@
 > 		return self.eventDescription
   
 ! class Officers(models.Model):
-! 	officerFirstName = models.CharField(max_length=50)
-! 	officerLastName = models.CharField(max_length=50)
+> 	officerFirstName = models.CharField(max_length=50)
+> 	officerLastName = models.CharField(max_length=50)
 ! 	officerPosition = models.CharField(max_length=50)
   
 > 	def getFirstName(self):
@@ -39,9 +39,9 @@
 > 	def getPosition(self):
 > 		return self.officerPosition
   
-! class Members(models.Model):
-! 	memberFirstName = models.CharField(max_length=50)
-! 	memberLastName = models.CharField(max_length=50)
+> class Members(models.Model):
+> 	memberFirstName = models.CharField(max_length=50)
+> 	memberLastName = models.CharField(max_length=50)
   
 > 	def getFirstName(self):
 > 		return self.memberFirstName
@@ -51,9 +51,12 @@
   
 ! class Home(models.Model):
 ! 	number = models.CharField(max_length=1)
-! 	description = models.CharField(max_length=1000)
+> 	description = models.CharField(max_length=1000)
   
-! 	def getDescription(self):
-! 		return self.description
+! 	def getNumber(self):
+> 		return self.number
+  
+> 	def getDescription(self):
+> 		return self.description
   
   
