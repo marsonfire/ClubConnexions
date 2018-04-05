@@ -10,8 +10,9 @@ class Event(models.Model):
 	eventDescription = models.CharField(max_length=1000)
 
 	def getName(self):
-		return self.eventName
-
+		name = self.eventName
+		return name
+		
 	def getDate(self):
 		return self.eventDate
 
