@@ -45,24 +45,16 @@ def documents(request):
 	return render(request, 'documents/documents.html')
 
 def officers(request):
-	allOfficers = Officers.objects.all()
-	if(request.POST.get('addOfficer')):
+	if(request.method == 'POST'):
 		officerFirstName = request.POST.get('officerFirstName', None).strip()
 		officerLastName = request.POST.get('officerLastName', None).strip()
 		officerPosition = request.POST.get('officerPosition', None).strip()
 		o = Officers.objects.create(officerFirstName=officerFirstName, officerLastName=officerLastName, officerPosition=officerPosition)
+		allOfficers = Officers.objects.all()
 		context = {'enable':enable, 'o':o, 'allOfficers':allOfficers}
 		return render(request, 'officers/officers.html', context)
-	elif(request.GET.get('deleteAllOfficers')):
-		for o in allOfficers:
-			o.delete()
-	elif(request.POST.get('deleteOfficer')):
-		officerName = request.POST.get('officerName', None).strip()
-		for o in allOfficers:
-			officerObjName = o.officerFirstName + " " +  o.officerLastName
-			if(officerObjName == officerName):
-				o.delete()
 		
+	allOfficers = Officers.objects.all()
 	context = {'enable':enable, 'allOfficers':allOfficers}
 	return render(request, 'officers/officers.html', context)
 
@@ -70,23 +62,15 @@ def addOfficer(request):
 	return render(request, 'officers/addOfficer.html')
 
 def members(request):
-	allMembers = Members.objects.all()
-	if(request.POST.get('addMember')):
+	if(request.method == 'POST'):
 		memberFirstName = request.POST.get('memberFirstName', None)
 		memberLastName = request.POST.get('memberLastName', None)
 		m = Members.objects.create(memberFirstName=memberFirstName, memberLastName=memberLastName)
+		allMembers = Members.objects.all()
 		context = {'enable':enable, 'm':m, 'allMembers':allMembers}
 		return render(request, 'members/members.html', context)
-	elif(request.GET.get('deleteAllMembers')):
-		for m in allMembers:
-			m.delete()
-	elif(request.POST.get('deleteMember')):
-		memberName = request.POST.get('memberName', None).strip()
-		for m in allMembers:
-			memberObjName = m.memberFirstName + " " +  m.memberLastName
-			if(memberObjName == memberName):
-				m.delete()
-	
+		
+	allMembers = Members.objects.all()
 	context = {'enable':enable, 'allMembers':allMembers}
 	return render(request, 'members/members.html', context)
 
@@ -95,9 +79,15 @@ def addMember(request):
 
 def login(request):
 	return render(request, 'login/login.html')
-	
-def password(request):
-        return render(request, 'login/password.html')
 
-def scott(request):
-        return render(request, 'scott/scott.html')
+def password(request):
+        if(request.method==('login')):
+                loginAttempt= request.POST.get('password',None)
+                if(loginAttempt == 'currentPassword'):
+                   render(request,'login/password.html')     
+        
+        return render(request, 'login/password.html' )
+
+def changePassword(request):
+        return render(request, 'login/changePassword.html')
+                
