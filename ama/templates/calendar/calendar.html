@@ -48,7 +48,7 @@ div{
 		{% csrf_token %}
 		{% if enable %}
 		<input type="submit" value="Delete Event:" name="deleteEvent">
-		<input type="text" name="eventName">
+		<input type="text" name="eventName" placeholder="Type in name of event">
 		{% else %}
 		<input type="submit" value="Delete Event:" disabled>
 		{% endif %}

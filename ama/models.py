@@ -24,9 +24,6 @@ class Event(models.Model):
 	def getDescription(self):
 		return self.eventDescription
 
-	if __name__ == '__main__':
-                unittest.main()    
-
 class Officers(models.Model):
 	officerFirstName = models.CharField(max_length=50)
 	officerLastName = models.CharField(max_length=50)
@@ -50,5 +47,12 @@ class Members(models.Model):
 
 	def getLastName(self):
 		return self.memberLastName
+
+class Home(models.Model):
+	number = models.CharField(max_length=1)
+	description = models.CharField(max_length=1000)
+
+	def getDescription(self):
+		return self.description
 
 
