@@ -6,6 +6,7 @@ app_name = 'ama'
 urlpatterns = [
     path('', views.index, name='index'),
     path('home/', views.home, name = 'home'),
+    path('home/edit-home', views.editHome, name = 'edit-home'),
     path('calendar/', views.calendar, name = 'calendar'),
     path('calendar/add-event', views.event, name = 'add-event'),
     path('documents/', views.documents, name = 'documents'),

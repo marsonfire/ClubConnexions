@@ -8,13 +8,13 @@ div{
 }
 </style>
 <head>
-	<title>Home Page</title>
+	<title>Edit Home Page</title>
 </head>
 <body>
 </body>
 </html>
 
-<h1 style="text-align: center;">Home</h1>
+<h1 style="text-align: center;">Edit Home</h1>
 <div style="text-align: center;">
 	<form style="display: inline;" action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
@@ -36,19 +36,13 @@ div{
 	</form>
 </div>
 <br>
-<div>
-	<form action="{% url 'ama:edit-home' %}">
-		{% if enable %}
-		<input type="submit" value="Edit Home">
-		{% else %}
-		<input type="submit" value="Edit Home" disabled>
-		{% endif %}
-	</form>
-</div>
-<div>
-	<p style="text-align: center;">
-		
-</p>
-</div>
+<div>	
+	<form action="/ama/home/" method="POST">
+		{% csrf_token %}
+	  	Description <br>
+	  	<textarea name="description" cols="80" rows="15"></textarea><br><br>
+	  	<input type="submit" name="editHome" value="Save Description">
+	</form> 
+</div>	
 </body>
 </html>

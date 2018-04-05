@@ -5,6 +5,7 @@ from django.shortcuts import render
 from .models import Event
 from .models import Officers
 from .models import Members
+from .models import Home
 
 #this means the admin is logged in 
 #it's really just for testing right now
@@ -14,7 +15,11 @@ def index(request):
 	return render(request, 'ama/index.html')
 
 def home(request):
-	return render(request, 'home/home.html')
+	context = {'enable': enable}
+	return render(request, 'home/home.html', context)
+
+def editHome(request):
+	return render(request, 'home/editHome.html')
 
 def calendar(request):
 	allEvents = Event.objects.all()
