@@ -77,9 +77,9 @@ def members(request):
 		return render(request, 'members/members.html', context)
 	elif(request.POST.get('deleteMember')):
 		memberName = request.POST.get('memberName', None).strip()
+		memberFirstName, memberLastName = memberName.split(" ") 
 		for m in allMembers:
-			# to delete a member, you must enter their last name only
-			if(m.memberLastName == memberName):
+			if(m.memberFirstName == memberFirstName and m.memberLastName == memberLastName):
 				m.delete()
 	context = {'enable':enable, 'allMembers':allMembers}
 	return render(request, 'members/members.html', context)
