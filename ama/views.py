@@ -54,7 +54,8 @@ def documents(request):
 	return render(request, 'documents/documents.html')
 
 def officers(request):
-	if(request.method == 'POST'):
+	allOfficers = Officers.objects.all()
+	if(request.POST.get('addOfficer')):
 		officerFirstName = request.POST.get('officerFirstName', None).strip()
 		officerLastName = request.POST.get('officerLastName', None).strip()
 		officerPosition = request.POST.get('officerPosition', None).strip()
@@ -62,8 +63,13 @@ def officers(request):
 		allOfficers = Officers.objects.all()
 		context = {'enable':enable, 'o':o, 'allOfficers':allOfficers}
 		return render(request, 'officers/officers.html', context)
-		
-	allOfficers = Officers.objects.all()
+	elif(request.POST.get('deleteOfficer')):
+		officerName = request.POST.get('officerName', None).strip()
+		officerFirstName, officerLastName = officerName.split(" ")
+		for o in allOfficers:
+			if(o.officerFirstName == officerFirstName and o.officerLastName == officerLastName):
+				o.delete()
+				return redirect('/ama/officers/')
 	context = {'enable':enable, 'allOfficers':allOfficers}
 	return render(request, 'officers/officers.html', context)
 
