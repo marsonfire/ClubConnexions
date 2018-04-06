@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 from .models import Event
 from .models import Officers
@@ -40,6 +41,7 @@ def calendar(request):
 		for e in allEvents:
 			if(e.eventName == eventName):
 				e.delete()
+				return redirect('/ama/calendar/')
 	context = {'enable':enable, 'allEvents':allEvents}
 	return render(request, 'calendar/calendar.html', context)
 
@@ -81,6 +83,7 @@ def members(request):
 		for m in allMembers:
 			if(m.memberFirstName == memberFirstName and m.memberLastName == memberLastName):
 				m.delete()
+				return redirect('/ama/members/')
 	context = {'enable':enable, 'allMembers':allMembers}
 	return render(request, 'members/members.html', context)
 
