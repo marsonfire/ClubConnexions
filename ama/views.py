@@ -67,15 +67,20 @@ def addOfficer(request):
 	return render(request, 'officers/addOfficer.html')
 
 def members(request):
-	if(request.method == 'POST'):
+	allMembers = Members.objects.all()
+	if(request.POST.get('addMember')):
 		memberFirstName = request.POST.get('memberFirstName', None)
 		memberLastName = request.POST.get('memberLastName', None)
 		m = Members.objects.create(memberFirstName=memberFirstName, memberLastName=memberLastName)
 		allMembers = Members.objects.all()
 		context = {'enable':enable, 'm':m, 'allMembers':allMembers}
 		return render(request, 'members/members.html', context)
-		
-	allMembers = Members.objects.all()
+	elif(request.POST.get('deleteMember')):
+		memberName = request.POST.get('memberName', None).strip()
+		for m in allMembers:
+			# to delete a member, you must enter their last name only
+			if(m.memberLastName == memberName):
+				m.delete()
 	context = {'enable':enable, 'allMembers':allMembers}
 	return render(request, 'members/members.html', context)
 

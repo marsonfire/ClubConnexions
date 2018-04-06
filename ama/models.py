@@ -46,6 +46,9 @@ class Members(models.Model):
 	memberFirstName = models.CharField(max_length=50)
 	memberLastName = models.CharField(max_length=50)
 
+	class Meta:
+		ordering = ['memberLastName', 'memberFirstName']
+
 	def getFirstName(self):
 		return self.memberFirstName
 
