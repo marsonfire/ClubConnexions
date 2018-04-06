@@ -36,6 +36,8 @@ def calendar(request):
 	elif(request.GET.get('deleteAllEvents')):
 		for e in allEvents:
 			e.delete()
+			return redirect('/ama/calendar/')
+
 	elif(request.POST.get('deleteEvent')):
 		eventName = request.POST.get('eventName', None).strip()
 		for e in allEvents:
