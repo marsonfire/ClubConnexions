@@ -34,12 +34,47 @@ div{
 </div>
 <br>
 <div>
+	<p>Fill in text boxes below to add a member.</p>
 	<form action="/ama/members/" method="POST">
 		{% csrf_token %}
-	  	First Name <input type="text" name="memberFirstName" required><br><br>
-	  	Last Name <input type="text" name="memberLastName" required><br><br>
+	  	First Name: <input type="text" name="memberFirstName" required><br><br>
+	  	Last Name: <input type="text" name="memberLastName" required><br><br>
+		Email: <input type="text" name="email" required><br><br>
+		All Card Number: <input type="text" name="allCardNumber" required><br><br>
 	  	<input type="submit" name="addMember" value="Create and add Member">
 	</form> 
+	<p>Fill in text boxes below to retrieve a member information</p>
+	<form action="/ama/members/" method="GET">
+		{% csrf_token %}
+		First Name: <input type="text" name="memberFirstName" required><br><br>
+	  	Last Name: <input type="text" name="memberLastName" required><br><br>
+		Email: <input type="text" name="email" required><br><br>
+		All Card Number: <input type="text" name="allCardNumber" required><br><br>
+	  	<input type="submit" name="getMember" value="Retrieve member">
+	</form>
 </div>
 </body>
 </html>
+	<form action="{% url 'ama:add-member' %}">
+		{% if enable %}
+		<input type="submit" value="Add Member">
+		{% else %}
+		<input type="submit" value="Add Member" disabled>
+		{% endif %}
+	</form>
+	<form action="/ama/members/" method="POST">
+		{% csrf_token %}
+		{% if enable %}
+		<input type="submit" value="Delete Member:" name="deleteMember">
+		<input type="text" name="memberName" placeholder="Type in name of member">
+		{% else %}
+		<input type="submit" value="Delete Member" disabled>
+		{% endif %}
+	</form>
+	<form action="/ama/members/" method="GET">
+		{% if enable %}
+		<input type="submit" value="Delete All Members" name="deleteAllMembers">
+		{% else %}
+		<input type="submit" value="Delete All Members" disabled>
+		{% endif %}
+	</form>
