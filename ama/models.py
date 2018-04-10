@@ -49,7 +49,7 @@ class Members(models.Model):
 	memberID = models.CharField(max_length=10)
 
 	class Meta:
-		ordering = ['memberLastName', 'memberFirstName']
+		ordering = ['memberLastName', 'memberFirstName', 'memberEmail']
 
 	def getFirstName(self):
 		return self.memberFirstName
