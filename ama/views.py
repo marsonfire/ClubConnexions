@@ -81,9 +81,11 @@ def members(request):
 	if(request.POST.get('addMember')):
 		memberFirstName = request.POST.get('memberFirstName', None)
 		memberLastName = request.POST.get('memberLastName', None)
+		memberEmail = request.POST.get('memberEmail', None)
+		memberID = request.POST.get('memberID', None)
 		email = request.POST.get('email', None)
 		allCardNumber = request.POST.get('allCardNumber', None)
-		m = Members.objects.create(memberFirstName=memberFirstName, memberLastName=memberLastName, email=email, allCardNumber=allCardNumber)
+		m = Members.objects.create(memberFirstName=memberFirstName, memberLastName=memberLastName, memberEmail=memberEmail, memberID=memberID)
 		allMembers = Members.objects.all()
 		context = {'enable':enable, 'm':m, 'allMembers':allMembers}
 		return render(request, 'members/members.html', context)
