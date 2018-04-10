@@ -81,15 +81,17 @@ def members(request):
 	if(request.POST.get('addMember')):
 		memberFirstName = request.POST.get('memberFirstName', None)
 		memberLastName = request.POST.get('memberLastName', None)
-		m = Members.objects.create(memberFirstName=memberFirstName, memberLastName=memberLastName)
+		email = request.POST.get('email', None)
+		allCardNumber = request.POST.get('allCardNumber', None)
+		m = Members.objects.create(memberFirstName=memberFirstName, memberLastName=memberLastName, email=email, allCardNumber=allCardNumber)
 		allMembers = Members.objects.all()
 		context = {'enable':enable, 'm':m, 'allMembers':allMembers}
 		return render(request, 'members/members.html', context)
 	elif(request.POST.get('deleteMember')):
 		memberName = request.POST.get('memberName', None).strip()
-		memberFirstName, memberLastName = memberName.split(" ") 
+		memberFirstName, memberLastName, email, allCardNumber = memberName.split(" ") 
 		for m in allMembers:
-			if(m.memberFirstName == memberFirstName and m.memberLastName == memberLastName):
+			if(m.memberFirstName == memberFirstName and m.memberLastName == memberLastName): ##Possibly need to add email and acn here
 				m.delete()
 				return redirect('/ama/members/')
 	context = {'enable':enable, 'allMembers':allMembers}
