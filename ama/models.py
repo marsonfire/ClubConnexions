@@ -45,6 +45,8 @@ class Officers(models.Model):
 class Members(models.Model):
 	memberFirstName = models.CharField(max_length=50)
 	memberLastName = models.CharField(max_length=50)
+	memberEmail = models.CharField(max_length=50)
+	memberID = models.CharField(max_length=10)
 
 	class Meta:
 		ordering = ['memberLastName', 'memberFirstName']
@@ -55,6 +57,12 @@ class Members(models.Model):
 	def getLastName(self):
 		return self.memberLastName
 
+	def getEmail(self):
+		return self.memberEmail
+
+	def getID(self):
+		return self.memberID
+		
 class Home(models.Model):
 	number = models.CharField(max_length=1)
 	description = models.CharField(max_length=1000)

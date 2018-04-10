@@ -89,7 +89,7 @@ def members(request):
 		return render(request, 'members/members.html', context)
 	elif(request.POST.get('deleteMember')):
 		memberName = request.POST.get('memberName', None).strip()
-		memberFirstName, memberLastName, email, allCardNumber = memberName.split(" ") 
+		memberFirstName, memberLastName= memberName.split(" ") 
 		for m in allMembers:
 			if(m.memberFirstName == memberFirstName and m.memberLastName == memberLastName): ##Possibly need to add email and acn here
 				m.delete()
