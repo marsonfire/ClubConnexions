@@ -70,6 +70,10 @@ def officers(request):
 			if(o.officerFirstName == officerFirstName and o.officerLastName == officerLastName):
 				o.delete()
 				return redirect('/ama/officers/')
+	elif(request.GET.get('deleteAllOfficers')):
+		for o in allOfficers:
+			o.delete()
+		return redirect('/ama/officers')
 	context = {'enable':enable, 'allOfficers':allOfficers}
 	return render(request, 'officers/officers.html', context)
 
@@ -96,6 +100,11 @@ def members(request):
 			if(m.memberFirstName == memberFirstName and m.memberLastName == memberLastName): ##Possibly need to add email and acn here
 				m.delete()
 				return redirect('/ama/members/')
+	elif(request.GET.get('deleteAllMembers')):
+		for m in allMembers:
+			m.delete()
+		return redirect('/ama/members')
+
 	context = {'enable':enable, 'allMembers':allMembers}
 	return render(request, 'members/members.html', context)
 
