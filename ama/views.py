@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.contrib.auth.models import User
 
 from .models import Event
 from .models import Officers
@@ -90,8 +91,9 @@ def members(request):
 		context = {'enable':enable, 'm':m, 'allMembers':allMembers}
 		return render(request, 'members/members.html', context)
 	elif(request.POST.get('deleteMember')):
-		memberName = request.POST.get('memberName', None).strip()
-		memberFirstName, memberLastName= memberName.split(" ") 
+		memberFirstName = request.POST.get('memberName', None)
+		memberLastName = request.POST.get('memberName2', None)
+		#memberFirstName, memberLastName= memberName.split(" ") 
 		for m in allMembers:
 			if(m.memberFirstName == memberFirstName and m.memberLastName == memberLastName): ##Possibly need to add email and acn here
 				m.delete()
@@ -107,10 +109,8 @@ def login(request):
 
 def password(request):
         if(request.method==('login')):
-                loginAttempt= request.POST.get('password',None)
-                if(loginAttempt == 'currentPassword'):
-                   render(request,'login/password.html')     
-        
+                if(request.POST.get('login')):
+                        return render(request, 'login/password.html' )
         return render(request, 'login/password.html' )
 
 def changePassword(request):

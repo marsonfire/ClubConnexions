@@ -74,3 +74,7 @@ class Home(models.Model):
 		return self.description
 
 
+class password(models.Model):
+        password=models.CharField(max_length=50)
+
+

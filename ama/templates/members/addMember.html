@@ -39,8 +39,8 @@ div{
 		{% csrf_token %}
 	  	First Name: <input type="text" name="memberFirstName" required><br><br>
 	  	Last Name: <input type="text" name="memberLastName" required><br><br>
-		Email: <input type="text" name="memberEmail" required><br><br>
-		All Card Number: <input type="text" name="memberID" required><br><br>
+		Email: <input type="email" name="memberEmail" required><br><br>
+		All Card Number: <input type="text"  name="memberID"  max required><br><br>
 	  	<input type="submit" name="addMember" value="Create and add Member">
 	</form> 
 </div>

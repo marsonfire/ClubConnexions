@@ -37,8 +37,8 @@ div{
 	<form action="/ama/calendar/" method="POST">
 		{% csrf_token %}
 	  	Name <input type="text" name="eventName" required><br><br>
-	  	Date <input type="text" name="eventDate" required><br><br>
-	  	Time <input type="text" name="eventTime" required><br><br>
+	  	Date <input type="date" name="eventDate" required><br><br>
+	  	Time <input type="time" name="eventTime" required><br><br>
 	  	Location <input type="text" name="eventLocation" required><br><br>
 	  	Description <br>
 	  	<textarea name="eventDescription" cols="80" rows="15"></textarea><br><br>

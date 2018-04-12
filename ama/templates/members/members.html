@@ -48,7 +48,8 @@ div{
 		{% csrf_token %}
 		{% if enable %}
 		<input type="submit" value="Delete Member:" name="deleteMember">
-		<input type="text" name="memberName" placeholder="Type in name of member">
+		<input type="text" name="memberName" placeholder="Type in first name of member">
+		<input type="text" name="memberName2" placeholder="Type in last name of Member">
 		{% else %}
 		<input type="submit" value="Delete Member" disabled>
 		{% endif %}
