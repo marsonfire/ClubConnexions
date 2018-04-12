@@ -63,10 +63,10 @@ div{
 </div>
 <p style="text-align: center;">
 	{% for m in allMembers %}
-		{{m.memberFirstName}}
+		<b>Name:</b> {{m.memberFirstName}}
 		{{m.memberLastName}}<br>
-		{{m.memberEmail}}<br>
-		{{m.memberID}}<br><br>
+		<b>Email:</b> {{m.memberEmail}}<br>
+		<b>ID Number:</b> {{m.memberID}}<br><br>
 	{% endfor %}
 </p>
 </body>

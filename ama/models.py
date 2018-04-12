@@ -33,6 +33,9 @@ class Officers(models.Model):
 	officerLastName = models.CharField(max_length=50)
 	officerPosition = models.CharField(max_length=50)
 
+	class Meta:
+		ordering = ['officerLastName', 'officerFirstName']
+
 	def getFirstName(self):
 		return self.officerFirstName
 
@@ -49,7 +52,7 @@ class Members(models.Model):
 	memberID = models.CharField(max_length=10)
 
 	class Meta:
-		ordering = ['memberLastName', 'memberFirstName', 'memberEmail']
+		ordering = ['memberLastName', 'memberFirstName']
 
 	def getFirstName(self):
 		return self.memberFirstName
