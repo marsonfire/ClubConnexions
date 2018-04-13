@@ -63,9 +63,9 @@ div{
 </div>
 <p style="text-align: center;">
 	{% for o in allOfficers %}
-		{{o.officerFirstName}}
+		<b>Name:</b> {{o.officerFirstName}}
 		{{o.officerLastName}}<br>
-		{{o.officerPosition}}<br><br>
+		<b>Position:</b> {{o.officerPosition}}<br><br>
 	{% endfor %}
 </p>
 </body>

@@ -48,8 +48,7 @@ div{
 		{% csrf_token %}
 		{% if enable %}
 		<input type="submit" value="Delete Member:" name="deleteMember">
-		<input type="text" name="memberName" placeholder="Type in first name of member">
-		<input type="text" name="memberName2" placeholder="Type in last name of Member">
+		<input type="text" name="memberName" placeholder="Type in name of member">
 		{% else %}
 		<input type="submit" value="Delete Member" disabled>
 		{% endif %}
@@ -64,10 +63,10 @@ div{
 </div>
 <p style="text-align: center;">
 	{% for m in allMembers %}
-		{{m.memberFirstName}}
+		<b>Name:</b> {{m.memberFirstName}}
 		{{m.memberLastName}}<br>
-		{{m.memberEmail}}<br>
-		{{m.memberID}}<br><br>
+		<b>Email:</b> {{m.memberEmail}}<br>
+		<b>ID Number:</b> {{m.memberID}}<br><br>
 	{% endfor %}
 </p>
 </body>
