@@ -6,6 +6,11 @@ form{
 div{
 	text-align: center;
 }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 </style>
 <head>
 	<title>Club Members Page</title>
@@ -14,6 +19,7 @@ div{
 </body>
 </html>
 
+<img src="https://i.imgur.com/oIz18pg.png" width="100" height="100" class="center"> 
 <h1 style="text-align: center;">Club Members</h1>
 <div style="text-align: center;">
 	<form style="display: inline;" action="{% url 'ama:home' %}">
@@ -53,13 +59,13 @@ div{
 		<input type="submit" value="Delete Member" disabled>
 		{% endif %}
 	</form>
-	<form action="/ama/members/" method="GET">
+	<!-- <form action="/ama/members/" method="GET">
 		{% if enable %}
 		<input type="submit" value="Delete All Members" name="deleteAllMembers">
 		{% else %}
 		<input type="submit" value="Delete All Members" disabled>
 		{% endif %}
-	</form>
+	</form> -->
 </div>
 <p style="text-align: center;">
 	{% for m in allMembers %}
