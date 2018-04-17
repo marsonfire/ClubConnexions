@@ -5,6 +5,12 @@
     margin-left: auto;
     margin-right: auto;
 }
+form{
+	display: inline;
+}
+div{
+	text-align: center;
+}
 </style>
 <head>
 	<title>Admin Login Page</title>
@@ -17,32 +23,59 @@
 
 <h1 style="text-align: center;">Admin Login</h1>
 <div style="text-align: center;">
-	<form style="display: inline;" action="{% url 'ama:home' %}">
+	{% if enable %}
+	<form action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>
-	<form style="display: inline;" action="{% url 'ama:calendar' %}">
+	<form action="{% url 'ama:calendar' %}">
 		<input type="submit" value="Calendar">
 	</form>
-	<form style="display: inline;" action="{% url 'ama:documents' %}">
+	<form action="{% url 'ama:documents' %}">
 		<input type="submit" value="Documents">
 	</form>
-	<form style="display: inline;" action="{% url 'ama:officers' %}">
+	<form action="{% url 'ama:officers' %}">
 		<input type="submit" value="Club Officers">
 	</form>
-	<form style="display: inline;" action="{% url 'ama:members' %}">
+	<form action="{% url 'ama:members' %}">
 		<input type="submit" value="Club Members">
 	</form>
-	<form style="display: inline;" action="{% url 'ama:login' %}">
+	<form action="{% url 'ama:login' %}">
 		<input type="submit" value="Admin Login">
 	</form>
+	{% else %}
+	<form action="{% url 'ama:home' %}">
+		<input type ="submit" value="Home"/>
+	</form>
+	<form action="{% url 'ama:calendar' %}">
+		<input type="submit" value="Calendar">
+	</form>
+	<form action="{% url 'ama:documents' %}">
+		<input type="submit" value="Documents">
+	</form>
+	<form action="{% url 'ama:officers' %}">
+		<input type="submit" value="Club Officers">
+	</form>
+	<form action="{% url 'ama:members' %}">
+		<input type="submit" value="Club Members" disabled>
+	</form>
+	<form action="{% url 'ama:login' %}">
+		<input type="submit" value="Admin Login">
+	</form>
+	{% endif %}
 </div>
 <form action="{% url 'ama:password' %}">
 <p style="text-align: center;">
 <input type="submit" value="Login ( Admin Only)">
 </form>
+{% if enable%}
 <form action="{% url 'ama:changePassword' %}">
 <p style="text-align: center;">
 <input type="submit" value="Change Admin Password">
+{% else %}
+<form action="{% url 'ama:changePassword' %}">
+<p style="text-align: center;">
+<input type="submit" value="Change Admin Password" disabled>
+{% endif %}
 </form>
 
 
