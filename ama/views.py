@@ -65,9 +65,9 @@ def officers(request):
 		return render(request, 'officers/officers.html', context)
 	elif(request.POST.get('deleteOfficer')):
 		officerName = request.POST.get('officerName', None).strip()
-		officerFirstName, officerLastName = officerName.split(" ")
 		for o in allOfficers:
-			if(o.officerFirstName == officerFirstName and o.officerLastName == officerLastName):
+			officerObjName = o.officerFirstName + " " + o.officerLastName
+			if(officerObjName == officerName):
 				o.delete()
 				return redirect('/ama/officers/')
 	elif(request.GET.get('deleteAllOfficers')):
@@ -95,9 +95,9 @@ def members(request):
 		return render(request, 'members/members.html', context)
 	elif(request.POST.get('deleteMember')):
 		memberName = request.POST.get('memberName', None).strip()
-		memberFirstName, memberLastName= memberName.split(" ") 
 		for m in allMembers:
-			if(m.memberFirstName == memberFirstName and m.memberLastName == memberLastName): ##Possibly need to add email and acn here
+			memberObjName = m.memberFirstName + " " + m.memberLastName
+			if(memberName == memberObjName):
 				m.delete()
 				return redirect('/ama/members/')
 	elif(request.GET.get('deleteAllMembers')):
