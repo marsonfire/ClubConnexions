@@ -8,14 +8,13 @@ from .models import Officers
 from .models import Members
 from .models import Home
 
-#this means the admin is logged in 
-#it's really just for testing right now
-enable = True
+enable = False
 
 def index(request):
 	return render(request, 'ama/index.html')
 
 def home(request):
+	global enable
 	context = {'enable': enable}
 	return render(request, 'home/home.html', context)
 
@@ -117,12 +116,18 @@ def login(request):
 	return render(request, 'login/login.html', context)
 
 def password(request):
-        if(request.method==('login')):
-                loginAttempt= request.POST.get('password',None)
-                if(loginAttempt == 'currentPassword'):
-                   render(request,'login/password.html')     
-        context = {'enable': enable}
-        return render(request, 'login/password.html', context)
+	global enable
+	print(enable)
+	if(request.POST.get('login')):
+		print("POST LOGIN")
+		loginAttempt = request.POST.get('password', None)
+		if(loginAttempt == 'password'):
+			print("ENABLE SHOULD BE TRUE")
+			enable = True
+			print(enable)
+			return redirect('/ama/login/password')
+	context = {'enable': enable}
+	return render(request, 'login/password.html', context)
 
 def changePassword(request):
 	context = {'enable': enable}
