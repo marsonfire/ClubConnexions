@@ -51,7 +51,8 @@ def event(request):
 	return render(request, 'calendar/event.html')
 
 def documents(request):
-	return render(request, 'documents/documents.html')
+	context = {'enable': enable}
+	return render(request, 'documents/documents.html', context)
 
 def officers(request):
 	allOfficers = Officers.objects.all()
@@ -112,16 +113,18 @@ def addMember(request):
 	return render(request, 'members/addMember.html')
 
 def login(request):
-	return render(request, 'login/login.html')
+	context = {'enable': enable}
+	return render(request, 'login/login.html', context)
 
 def password(request):
         if(request.method==('login')):
                 loginAttempt= request.POST.get('password',None)
                 if(loginAttempt == 'currentPassword'):
                    render(request,'login/password.html')     
-        
-        return render(request, 'login/password.html' )
+        context = {'enable': enable}
+        return render(request, 'login/password.html', context)
 
 def changePassword(request):
-        return render(request, 'login/changePassword.html')
+	context = {'enable': enable}
+	return render(request, 'login/changePassword.html', context)
                 
