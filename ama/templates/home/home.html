@@ -24,7 +24,7 @@ div{
 <h1 style="text-align: center;">Home</h1> 
 
 <div style="text-align: center;">
-	{% if enable %}
+	{% if user.is_authenticated %}
 	<form action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>
@@ -67,7 +67,7 @@ div{
 <br>
 <div>
 	<form action="{% url 'ama:edit-home' %}">
-		{% if enable %}
+		{% if user.is_authenticated %}
 		<input type="submit" value="Edit Home">
 		{% else %}
 		<input type="submit" value="Edit Home" disabled>

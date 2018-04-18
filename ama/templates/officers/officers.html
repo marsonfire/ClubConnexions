@@ -22,7 +22,7 @@ div{
 <img src="https://i.imgur.com/oIz18pg.png" width="100" height="100" class="center"> 
 <h1 style="text-align: center;">Club Officers</h1>
 <div>
-	{% if enable %}
+	{% if user.is_authenticated %}
 	<form action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>
@@ -65,7 +65,7 @@ div{
 <br>
 <div>
 	<form action="{% url 'ama:add-officer' %}">
-		{% if enable %}
+		{% if user.is_authenticated %}
 		<input type="submit" value="Add Officer">
 		{% else %}
 		<input type="submit" value="Add Officer" disabled>
@@ -73,7 +73,7 @@ div{
 	</form>
 	<form action="/ama/officers/" method="POST">
 		{% csrf_token %}
-		{% if enable %}
+		{% if user.is_authenticated %}
 		<input type="submit" value="Delete Officer:" name="deleteOfficer">
 		<input type="text" name="officerName" placeholder="Type in name of officer">
 		{% else %}

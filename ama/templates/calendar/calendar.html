@@ -22,7 +22,7 @@ div{
 <img src="https://i.imgur.com/oIz18pg.png" width="100" height="100" class="center"> 
 <h1 style="text-align: center;">Calendar</h1>
 <div>
-	{% if enable %}
+	{% if user.is_authenticated %}
 	<form action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>
@@ -65,7 +65,7 @@ div{
 <br>
 <div>
 	<form action="{% url 'ama:add-event' %}">
-		{% if enable %}
+		{% if user.is_authenticated %}
 		<input type="submit" value="Add Event">
 		{% else %}
 		<input type="submit" value="Add Event" disabled>
@@ -73,7 +73,7 @@ div{
 	</form>
 	<form action="/ama/calendar/" method="POST">
 		{% csrf_token %}
-		{% if enable %}
+		{% if user.is_authenticated %}
 		<input type="submit" value="Delete Event:" name="deleteEvent">
 		<input type="text" name="eventName" placeholder="Type in name of event">
 		{% else %}

@@ -23,7 +23,7 @@ div{
 
 <h1 style="text-align: center;">Documents</h1>
 <div style="text-align: center;">
-	{% if enable %}
+	{% if user.is_authenticated %}
 	<form action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>

@@ -23,7 +23,7 @@ div{
 
 <h1 style="text-align: center;">Admin Login</h1>
 <div style="text-align: center;">
-	{% if enable %}
+	{% if user.is_authenticated %}
 	<form action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>
@@ -64,10 +64,16 @@ div{
 	{% endif %}
 </div>
 <form action="{% url 'ama:password' %}">
-<p style="text-align: center;">
-<input type="submit" value="Login ( Admin Only)">
+	<p style="text-align: center;">
+	<input type="submit" value="Login (Admin Only)">
 </form>
-{% if enable%}
+<form action="/ama/login/" method="POST">
+	{% csrf_token %}
+	<p style="text-align: center;">
+	<input type="submit" value="Logout" name="logout">
+</form>
+
+{% if user.is_authenticated %}
 <form action="{% url 'ama:changePassword' %}">
 <p style="text-align: center;">
 <input type="submit" value="Change Admin Password">

@@ -2,6 +2,8 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.contrib.auth import authenticate, logout
+from django.contrib.auth import login as auth_login
 
 from .models import Event
 from .models import Officers
@@ -112,19 +114,19 @@ def addMember(request):
 	return render(request, 'members/addMember.html')
 
 def login(request):
+	if(request.POST.get('logout')):
+		logout(request)
+		return redirect('/ama/login/')
 	context = {'enable': enable}
 	return render(request, 'login/login.html', context)
 
 def password(request):
-	global enable
-	print(enable)
 	if(request.POST.get('login')):
-		print("POST LOGIN")
-		loginAttempt = request.POST.get('password', None)
-		if(loginAttempt == 'password'):
-			print("ENABLE SHOULD BE TRUE")
-			enable = True
-			print(enable)
+		username = request.POST.get('username', None)
+		password = request.POST.get('password', None)
+		user = authenticate(request, username=username, password=password)
+		if(user is not None):
+			auth_login(request, user)
 			return redirect('/ama/login/password')
 	context = {'enable': enable}
 	return render(request, 'login/password.html', context)
