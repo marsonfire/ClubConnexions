@@ -10,15 +10,11 @@ from .models import Officers
 from .models import Members
 from .models import Home
 
-enable = False
-
 def index(request):
 	return render(request, 'ama/index.html')
 
 def home(request):
-	global enable
-	context = {'enable': enable}
-	return render(request, 'home/home.html', context)
+	return render(request, 'home/home.html')
 
 def editHome(request):
 	return render(request, 'home/editHome.html')
@@ -32,7 +28,7 @@ def calendar(request):
 		eventLocation = request.POST.get('eventLocation', None).strip()
 		eventDescription = request.POST.get('eventDescription', None).strip()
 		e = Event.objects.create(eventName=eventName, eventDate=eventDate, eventTime=eventTime, eventLocation=eventLocation, eventDescription=eventDescription)
-		context = {'enable':enable, 'e':e, 'allEvents':allEvents}
+		context = {'e':e, 'allEvents':allEvents}
 		return render(request, 'calendar/calendar.html', context)
 	elif(request.GET.get('deleteAllEvents')):
 		for e in allEvents:
@@ -45,15 +41,14 @@ def calendar(request):
 			if(e.eventName == eventName):
 				e.delete()
 				return redirect('/ama/calendar/')
-	context = {'enable':enable, 'allEvents':allEvents}
+	context = {'allEvents':allEvents}
 	return render(request, 'calendar/calendar.html', context)
 
 def event(request):
 	return render(request, 'calendar/event.html')
 
 def documents(request):
-	context = {'enable': enable}
-	return render(request, 'documents/documents.html', context)
+	return render(request, 'documents/documents.html')
 
 def officers(request):
 	allOfficers = Officers.objects.all()
@@ -63,7 +58,7 @@ def officers(request):
 		officerPosition = request.POST.get('officerPosition', None).strip()
 		o = Officers.objects.create(officerFirstName=officerFirstName, officerLastName=officerLastName, officerPosition=officerPosition)
 		allOfficers = Officers.objects.all()
-		context = {'enable':enable, 'o':o, 'allOfficers':allOfficers}
+		context = {'o':o, 'allOfficers':allOfficers}
 		return render(request, 'officers/officers.html', context)
 	elif(request.POST.get('deleteOfficer')):
 		officerName = request.POST.get('officerName', None).strip()
@@ -76,7 +71,7 @@ def officers(request):
 		for o in allOfficers:
 			o.delete()
 		return redirect('/ama/officers')
-	context = {'enable':enable, 'allOfficers':allOfficers}
+	context = {'allOfficers':allOfficers}
 	return render(request, 'officers/officers.html', context)
 
 def addOfficer(request):
@@ -93,7 +88,7 @@ def members(request):
 		allCardNumber = request.POST.get('allCardNumber', None)
 		m = Members.objects.create(memberFirstName=memberFirstName, memberLastName=memberLastName, memberEmail=memberEmail, memberID=memberID)
 		allMembers = Members.objects.all()
-		context = {'enable':enable, 'm':m, 'allMembers':allMembers}
+		context = {'m':m, 'allMembers':allMembers}
 		return render(request, 'members/members.html', context)
 	elif(request.POST.get('deleteMember')):
 		memberName = request.POST.get('memberName', None).strip()
@@ -107,7 +102,7 @@ def members(request):
 			m.delete()
 		return redirect('/ama/members')
 
-	context = {'enable':enable, 'allMembers':allMembers}
+	context = {'allMembers':allMembers}
 	return render(request, 'members/members.html', context)
 
 def addMember(request):
@@ -117,8 +112,7 @@ def login(request):
 	if(request.POST.get('logout')):
 		logout(request)
 		return redirect('/ama/login/')
-	context = {'enable': enable}
-	return render(request, 'login/login.html', context)
+	return render(request, 'login/login.html')
 
 def password(request):
 	if(request.POST.get('login')):
@@ -128,10 +122,8 @@ def password(request):
 		if(user is not None):
 			auth_login(request, user)
 			return redirect('/ama/login/password')
-	context = {'enable': enable}
-	return render(request, 'login/password.html', context)
+	return render(request, 'login/password.html')
 
 def changePassword(request):
-	context = {'enable': enable}
-	return render(request, 'login/changePassword.html', context)
+	return render(request, 'login/changePassword.html')
                 
