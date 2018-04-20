@@ -9,13 +9,53 @@ form{
 	display: inline;
 }
 div{
-	text-align: center;
+	text-align: center;   
+
 }
+.button {
+    background-color: #87ceeb;
+    border: none;
+    color: Black;
+    padding: 15px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    font-family: Helvetica
+}
+.button1{
+	background-color: #e23bf6;
+	font-size: 12px;
+	margin: 1px 0px;
+	padding: 10px 30px;
+	
+}
+.button2{
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+
+
+
+
+h1{
+	font-family: Helvetica;
+	color: #7050ff ;
+
+	
+}
+body {
+    background-color: #9dffcb;
+}
+
 </style>
 <head>
 	<title>Admin Login Page</title>
 </head>
 <body>
+
 </body>
 </html>
 
@@ -24,6 +64,22 @@ div{
 <h1 style="text-align: center;">Admin Login</h1>
 <div style="text-align: center;">
 	{% if user.is_authenticated %}
+	<a href="http://localhost:8000/ama/home/" class="button button1"  >Home</a>
+	<a href="http://localhost:8000/ama/calendar/" class="button button1"  >Calendar</a>
+	<a href="http://localhost:8000/ama/documents/" class="button button1"  >Documents</a>
+	<a href="http://localhost:8000/ama/officers/" class="button button1"  >Club Officers</a>
+	<a href="http://localhost:8000/ama/members/" class="button button1"  >Club Members</a>
+	<a href="http://localhost:8000/ama/login/" class="button button1"  >Login</a>
+	{% else %}
+	<a href="http://localhost:8000/ama/home/" class="button button1"  >Home</a>
+	<a href="http://localhost:8000/ama/calendar/" class="button button1"  >Calendar</a>
+	<a href="http://localhost:8000/ama/documents/" class="button button1"  >Documents</a>
+	<a href="http://localhost:8000/ama/officers/" class="button button1"  >Club Officers</a>
+	<a href="#" class="button button1 button2"  >Club Members</a>
+	<a href="http://localhost:8000/ama/login/" class="button button1"  >Login</a>
+
+	{% endif %}
+<!--{% if user.is_authenticated %}
 	<form action="{% url 'ama:home' %}">
 		<input type ="submit" value="Home"/>
 	</form>
@@ -60,29 +116,36 @@ div{
 	</form>
 	<form action="{% url 'ama:login' %}">
 		<input type="submit" value="Admin Login">
-	</form>
-	{% endif %}
+	</form> 
+	{% endif %}-->
 </div>
 <form action="{% url 'ama:password' %}">
 	<p style="text-align: center;">
-	<input type="submit" value="Login (Admin Only)">
+	<!--<input type="submit" value="Login (Admin Only)"> -->
+	<a href="password" class="button" >Login (Admin Only)</a>
 </form>
 <form action="/ama/login/" method="POST">
 	{% csrf_token %}
 	<p style="text-align: center;">
-	<input type="submit" value="Logout" name="logout">
+	<!-- <input type="submit" value="Logout" name="logout"> -->
+	<a href="" class="button" >Logout</a>
 </form>
 
 {% if user.is_authenticated %}
-<form action="{% url 'ama:changePassword' %}">
+<!--<form action="{% url 'ama:changePassword' %}">-->
 <p style="text-align: center;">
-<input type="submit" value="Change Admin Password">
+
+<!-- <input type="submit" value="Change Admin Password"> -->
+<a href="changePassword" >change password</a>
 {% else %}
 <form action="{% url 'ama:changePassword' %}">
 <p style="text-align: center;">
-<input type="submit" value="Change Admin Password" disabled>
+<a href="changePassword" class="button" >Change Password</a>	
+<!--<input type="submit" value="Change Admin Password" disabled> -->
 {% endif %}
 </form>
+
+
 
 
 
