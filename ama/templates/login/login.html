@@ -23,13 +23,14 @@ div{
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    font-family: Helvetica
+    font-family: Helvetica ;
 }
 .button1{
 	background-color: #ff4800; /*What Scott had before: #e23bf6;*/
 	font-size: 12px;
 	margin: 1px 0px;
 	padding: 10px 30px;
+
 }
 .button1Disabled{
 	background-color: #ba3500;
@@ -81,41 +82,41 @@ body {
 	{% endif %} -->
 {% if user.is_authenticated %}
 	<form action="{% url 'ama:home' %}">
-		<input type ="submit" class="button1" value="Home"/>
+		<input type ="submit" class="button button1" value="Home"/>
 	</form>
 	<form action="{% url 'ama:calendar' %}">
-		<input type="submit" class="button1" value="Calendar">
+		<input type="submit" class="button button1" value="Calendar">
 	</form>
 	<form action="{% url 'ama:documents' %}">
-		<input type="submit" class="button1" value="Documents">
+		<input type="submit" class="button button1" value="Documents">
 	</form>
 	<form action="{% url 'ama:officers' %}">
-		<input type="submit" class="button1" value="Club Officers">
+		<input type="submit" class="button button1" value="Club Officers">
 	</form>
 	<form action="{% url 'ama:members' %}">
-		<input type="submit" class="button1" value="Club Members">
+		<input type="submit" class="button button1" value="Club Members">
 	</form>
 	<form action="{% url 'ama:login' %}">
-		<input type="submit" class="button1" value="Admin Login">
+		<input type="submit" class="button button1" value="Admin Login">
 	</form>
 	{% else %}
 	<form action="{% url 'ama:home' %}">
 		<input type ="submit" class="button button1" value="Home"/>
 	</form>
 	<form action="{% url 'ama:calendar' %}">
-		<input type="submit" class="button1" value="Calendar">
+		<input type="submit" class="button button1" value="Calendar">
 	</form>
 	<form action="{% url 'ama:documents' %}">
-		<input type="submit" class="button1" value="Documents">
+		<input type="submit" class="button button1" value="Documents">
 	</form>
 	<form action="{% url 'ama:officers' %}">
-		<input type="submit" class="button1" value="Club Officers">
+		<input type="submit" class="button button1" value="Club Officers">
 	</form>
 	<form action="{% url 'ama:members' %}">
-		<input type="submit" class="button1Disabled"  value="Club Members" disabled>
+		<input type="submit" class="button button1Disabled"  value="Club Members" disabled>
 	</form>
 	<form action="{% url 'ama:login' %}">
-		<input type="submit" class="button1" value="Admin Login">
+		<input type="submit" class="button button1" value="Admin Login">
 	</form> 
 	{% endif %}
 </div>
