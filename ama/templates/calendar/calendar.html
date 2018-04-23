@@ -56,9 +56,9 @@
 <br>
 <div>
 	<form action="{% url 'ama:add-event' %}">
-		<!--{% if user.is_authenticated %}-->
+		{% if user.is_authenticated %}
 		<input type="submit" value="Add Event">
-		<!--{% else %}-->
+		{% else %}
 		<input type="submit" value="Add Event" disabled >
 		{% endif %}
 	</form>
@@ -71,13 +71,13 @@
 		<input type="submit" value="Delete Event:" disabled>
 		{% endif %}
 	</form>
-	<!-- <form action="/ama/calendar/" method="GET">
+	<form action="/ama/calendar/" method="GET">
 		{% if enable %}
 		<input type="submit" value="Delete All Events" name="deleteAllEvents">
 		{% else %}
 		<input type="submit" value="Delete All Events" disabled>
 		{% endif %}
-	</form> -->
+	</form> 
 </div>
 <div>
 <p style="text-align: center;">
