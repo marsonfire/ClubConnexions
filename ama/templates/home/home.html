@@ -16,41 +16,41 @@
 <div style="text-align: center;">
 	{% if user.is_authenticated %}
 	<form action="{% url 'ama:home' %}">
-		<input type ="submit" value="Home"/>
+		<input type ="submit" class="button button1" value="Home"/>
 	</form>
 	<form action="{% url 'ama:calendar' %}">
-		<input type="submit" value="Calendar">
+		<input type="submit" class="button button1" value="Calendar">
 	</form>
 	<form action="{% url 'ama:documents' %}">
-		<input type="submit" value="Documents">
+		<input type="submit" class="button button1" value="Documents">
 	</form>
 	<form action="{% url 'ama:officers' %}">
-		<input type="submit" value="Club Officers">
+		<input type="submit" class="button button1" value="Club Officers">
 	</form>
 	<form action="{% url 'ama:members' %}">
-		<input type="submit" value="Club Members">
+		<input type="submit" class="button button1" value="Club Members">
 	</form>
 	<form action="{% url 'ama:login' %}">
-		<input type="submit" value="Admin Login">
+		<input type="submit" class="button button1" value="Admin Login">
 	</form>
 	{% else %}
 	<form action="{% url 'ama:home' %}">
-		<input type ="submit" value="Home"/>
+		<input type ="submit" class="button button1" value="Home"/>
 	</form>
 	<form action="{% url 'ama:calendar' %}">
-		<input type="submit" value="Calendar">
+		<input type="submit" class="button button1" value="Calendar">
 	</form>
 	<form action="{% url 'ama:documents' %}">
-		<input type="submit" value="Documents">
+		<input type="submit" class="button button1" value="Documents">
 	</form>
 	<form action="{% url 'ama:officers' %}">
-		<input type="submit" value="Club Officers">
+		<input type="submit" class="button button1" value="Club Officers">
 	</form>
 	<form action="{% url 'ama:members' %}">
-		<input type="submit" value="Club Members" disabled>
+		<input type="submit" class="button button1" value="Club Members" disabled>
 	</form>
 	<form action="{% url 'ama:login' %}">
-		<input type="submit" value="Admin Login">
+		<input type="submit" class="button button1" value="Admin Login">
 	</form>
 	{% endif %}
 </div>
@@ -69,5 +69,11 @@
 		All students in the school of business, specifically marketing majors, are encouraged to join the American Marketing Association (AMA) chapter at Xavier. AMA seeks to offer marketing majors and other students the opportunity to gain a broader, realistic, and more practically oriented exposure to marketing activities. These experiences enhance and augment the material being presented in the classroom. AMA strives to improve each member's marketability in today's highly competitive job market. Through company visits, marketing challenges, and Q&A sessions with leading industry professionals, AMA aims to equip students with proper tools for the job market and assist students in tailoring their career paths to fit their interests and desires. 
 	</p>
 </div>
+<div style="margin-left: 500px ; margin-right: 100px;">
+<!--<a class="twitter-timeline" data-lang="en" data-width="500" data-height="500" href="https://twitter.com/TwitterDev/timelines/539487832448843776?ref_src=twsrc%5Etfw">National Park Tweets - Curated tweets by TwitterDev</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+<blockquote class="twitter-tweet" data-lang="en"><p lang="und" dir="ltr">oof</p>&mdash; Scott Harrington (@sharringtony) <a href="https://twitter.com/sharringtony/status/988499225464967168?ref_src=twsrc%5Etfw">April 23, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+	</div>
 </body>
 </html>

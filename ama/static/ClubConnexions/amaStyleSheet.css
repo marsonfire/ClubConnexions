@@ -69,6 +69,15 @@ h1{
 body {
     background-color: #dcfeff; /*What Scott had before: #9dffcb;*/
 }
+p{
+    font-family: Helvetica;
+    font-weight: bold;
+    word-wrap: break-word;
+    margin-right: 15%;
+    margin-left: 15%;
+    background-color: White;
+
+}
 .center {
     display: block;
     margin-left: auto;
