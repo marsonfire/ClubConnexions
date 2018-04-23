@@ -1,18 +1,9 @@
+{% load static %}
 <html>
-<style>
-form{
-	display: inline;
-}
-div{
-	text-align: center;
-}
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-</style>
+
+
 <head>
+	<link rel="stylesheet" href="{% static 'ClubConnexions/amaStyleSheet.css' %}">
 	<title>Calendar Page</title>
 </head>
 <body>
@@ -65,9 +56,9 @@ div{
 <br>
 <div>
 	<form action="{% url 'ama:add-event' %}">
-		{% if user.is_authenticated %}
+		<!--{% if user.is_authenticated %}-->
 		<input type="submit" value="Add Event">
-		{% else %}
+		<!--{% else %}-->
 		<input type="submit" value="Add Event" disabled >
 		{% endif %}
 	</form>

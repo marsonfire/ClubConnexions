@@ -1,0 +1,76 @@
+
+
+form{
+    display: inline;
+}
+div{
+    text-align: center;   
+
+}
+.button {
+    background-color:Green; /*#87ceeb;*/
+    border: none;
+    color: Black;
+    padding: 30px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin-right:1%; 
+    margin-left:0px;
+    margin-top:0px;
+    margin-bottom:0px;
+    cursor: pointer;
+    font-family: Helvetica ;
+    /*width: 175px;*/
+}
+.button1{
+    background-color: #ff4800; /*What Scott had before: #e23bf6;*/
+    font-size: 24px;
+    padding: 10px 20px;
+
+}
+.button1Disabled{
+    background-color: #ba3500;
+    font-size: 24px;
+    padding: 10px 30px;
+}
+
+.bottom{
+    text-align: right;
+    margin-right: 10%; 
+    margin-left: 0px;
+    margin-top: 25%;
+    
+
+}
+a{
+    background-color: Red;
+    padding-bottom: 10px;
+    padding-right:10px; 
+    padding-left:10px;
+    padding-top:10px;
+}
+h1{
+    font-family: Helvetica;
+    font-size: 40px;
+    font-weight: bold; 
+    color: Black;
+    background-color: #d0ccff;
+    margin-top: 10px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10px;
+    padding-top:10px ;
+    padding-left:10px;
+    padding-right:10px;     
+    padding-bottom:10px;
+}
+body {
+    background-color: #dcfeff; /*What Scott had before: #9dffcb;*/
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
