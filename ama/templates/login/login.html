@@ -16,7 +16,7 @@
 </body>
 
 <h1>Admin Login
-<!--<div style="text-align: center;">-->
+<div style="text-align: center;">
 	<!-- {% if user.is_authenticated %}
 	<a href="http://localhost:8000/ama/home/" class="button button1"  >Home</a>
 	<a href="http://localhost:8000/ama/calendar/" class="button button1"  >Calendar</a>
@@ -65,14 +65,14 @@
 	<form action="{% url 'ama:officers' %}">
 		<input type="submit" class="button button1" value="Club Officers">
 	</form>
-	<form action="{% url 'ama:members' %}">
+	<!--<form action="{% url 'ama:members' %}">
 		<input type="submit" class="button button1Disabled"  value="Club Members" disabled>
-	</form>
+	</form>-->
 	<form action="{% url 'ama:login' %}">
 		<input type="submit" class="button button1" value="Admin Login">
 	</form> 
 	{% endif %}
-<!--</div>-->
+</div>
 </h1>
 <div class="center">
 <form action="{% url 'ama:password' %}">
