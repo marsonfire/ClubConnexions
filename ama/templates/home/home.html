@@ -82,7 +82,7 @@
 <div>
 	<form action="{% url 'ama:edit-home' %}">
 		{% if user.is_authenticated %}
-		<input type="submit" value="Edit Home">
+		<input type="submit" class="button" value="Edit Home">
 		{% else %}
 		<!--<input type="submit" value="Edit Home" disabled>-->
 		{% endif %}

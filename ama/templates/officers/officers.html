@@ -85,13 +85,13 @@
 		<!--<input type="submit" value="Delete Officer" disabled>-->
 		{% endif %}
 	</form>
-	<!-- <form action="/ama/officers/" method="GET">
-		{% if enable %}
+	<form action="/ama/officers/" method="GET">
+		{% if user.is_authenticated %}
 		<input type="submit" value="Delete All Officers" name="deleteAllOfficers">
 		{% else %}
-		<input type="submit" value="Delete All Officers" disabled>
+		<!--<input type="submit" value="Delete All Officers" disabled>-->
 		{% endif %}
-	</form> -->
+	</form>
 </div>
 <p style="text-align: center;">
 	{% for o in allOfficers %}

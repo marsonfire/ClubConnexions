@@ -15,7 +15,7 @@
 <img src="https://i.imgur.com/oIz18pg.png" width="200" height="200" class="center"> 
 </body>
 
-<h1>Admin Login
+<h1>Admin Login </h1>
 <div style="text-align: center;">
 	<!-- {% if user.is_authenticated %}
 	<a href="http://localhost:8000/ama/home/" class="button button1"  >Home</a>
@@ -73,7 +73,7 @@
 	</form> 
 	{% endif %}
 </div>
-</h1>
+
 <div class="center">
 <form action="{% url 'ama:password' %}">
 
@@ -101,13 +101,13 @@
 {% endif %}
 </form>
 </div>
-<div class="bottom">
+<!--<div class="bottom">
 <form action="/ama/login/" method="POST">
 	{% csrf_token %}
 	
 	<input type="submit" class="button" value="Logout" name="logout">
-	<!-- <a href="" class="button" >Logout</a> -->
-</form>
+	 <a href="" class="button" >Logout</a>
+</form> -->
 </div>
 
 
