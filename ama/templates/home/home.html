@@ -19,25 +19,10 @@
 }(document, 'script', 'facebook-jssdk'));</script>
 
 <img src="https://i.imgur.com/oIz18pg.png" width="100" height="100" class="center"> 
-<h1 style="text-align: center;">Home</h1> 
+<h1 >Home</h1> 
 
-<div style="text-align: center;">
-	<!-- {% if user.is_authenticated %}
-	<a href="http://localhost:8000/ama/home/" class="button button1"  >Home</a>
-	<a href="http://localhost:8000/ama/calendar/" class="button button1"  >Calendar</a>
-	<a href="http://localhost:8000/ama/documents/" class="button button1"  >Documents</a>
-	<a href="http://localhost:8000/ama/officers/" class="button button1"  >Club Officers</a>
-	<a href="http://localhost:8000/ama/members/" class="button button1"  >Club Members</a>
-	<a href="http://localhost:8000/ama/login/" class="button button1"  >Login</a>
-	{% else %}
-	<a href="http://localhost:8000/ama/home/" class="button button1"  >Home</a>
-	<a href="http://localhost:8000/ama/calendar/" class="button button1"  >Calendar</a>
-	<a href="http://localhost:8000/ama/documents/" class="button button1"  >Documents</a>
-	<a href="http://localhost:8000/ama/officers/" class="button button1"  >Club Officers</a>
-	<a href="#" class="button button1 button2"  >Club Members</a>
-	<a href="http://localhost:8000/ama/login/" class="button button1"  >Login</a>
+<div>
 
-	{% endif %} -->
 {% if user.is_authenticated %}
 	<form action="{% url 'ama:home' %}">
 		<input type ="submit" class="button button1" value="Home"/>

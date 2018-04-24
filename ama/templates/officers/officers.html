@@ -71,7 +71,7 @@
 <div>
 	<form action="{% url 'ama:add-officer' %}">
 		{% if user.is_authenticated %}
-		<input type="submit" value="Add Officer">
+		<input type="submit" class="button" value="Add Officer">
 		{% else %}
 		<!--<input type="submit" value="Add Officer" disabled>-->
 		{% endif %}
@@ -79,7 +79,7 @@
 	<form action="/ama/officers/" method="POST">
 		{% csrf_token %}
 		{% if user.is_authenticated %}
-		<input type="submit" value="Delete Officer:" name="deleteOfficer">
+		<input type="submit"  class="button" value="Delete Officer:" name="deleteOfficer">
 		<input type="text" name="officerName" placeholder="Type in name of officer">
 		{% else %}
 		<!--<input type="submit" value="Delete Officer" disabled>-->
@@ -87,7 +87,7 @@
 	</form>
 	<form action="/ama/officers/" method="GET">
 		{% if user.is_authenticated %}
-		<input type="submit" value="Delete All Officers" name="deleteAllOfficers">
+		<input type="submit" class="button" value="Delete All Officers" name="deleteAllOfficers">
 		{% else %}
 		<!--<input type="submit" value="Delete All Officers" disabled>-->
 		{% endif %}

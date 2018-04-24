@@ -6,33 +6,16 @@
 <link rel="stylesheet" href="{% static 'ClubConnexions/amaStyleSheet.css' %}">
 	<title>Admin Login Page</title>
 
-
 </head>
 <body>
-
 
 
 <img src="https://i.imgur.com/oIz18pg.png" width="200" height="200" class="center"> 
 </body>
 
 <h1>Admin Login </h1>
-<div style="text-align: center;">
-	<!-- {% if user.is_authenticated %}
-	<a href="http://localhost:8000/ama/home/" class="button button1"  >Home</a>
-	<a href="http://localhost:8000/ama/calendar/" class="button button1"  >Calendar</a>
-	<a href="http://localhost:8000/ama/documents/" class="button button1"  >Documents</a>
-	<a href="http://localhost:8000/ama/officers/" class="button button1"  >Club Officers</a>
-	<a href="http://localhost:8000/ama/members/" class="button button1"  >Club Members</a>
-	<a href="http://localhost:8000/ama/login/" class="button button1"  >Login</a>
-	{% else %}
-	<a href="http://localhost:8000/ama/home/" class="button button1"  >Home</a>
-	<a href="http://localhost:8000/ama/calendar/" class="button button1"  >Calendar</a>
-	<a href="http://localhost:8000/ama/documents/" class="button button1"  >Documents</a>
-	<a href="http://localhost:8000/ama/officers/" class="button button1"  >Club Officers</a>
-	<a href="#" class="button button1 button2"  >Club Members</a>
-	<a href="http://localhost:8000/ama/login/" class="button button1"  >Login</a>
+<div >
 
-	{% endif %} -->
 {% if user.is_authenticated %}
 	<form action="{% url 'ama:home' %}">
 		<input type ="submit" class="button button1" value="Home"/>
@@ -97,7 +80,7 @@
 <form action="{% url 'ama:changePassword' %}">
 
 <!-- <a href="changePassword" class="button" >Change Password</a>	 -->
-<input type="submit" class="button" value="Change Admin Password" disabled> 
+<input type="submit" class="button button1Disabled" value="Change Admin Password" disabled> 
 {% endif %}
 </form>
 </div>

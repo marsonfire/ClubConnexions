@@ -72,18 +72,18 @@
 <div>
 <form action="{% url 'ama:add-member' %}">
 		{% if user.is_authenticated %}
-		<input type="submit" value="Add Member">
+		<input type="submit" class="button" value="Add Member">
 		{% else %}
-		<input type="submit" value="Add Member" disabled>
+		<input type="submit" class="button button1Disabled" value="Add Member" disabled>
 		{% endif %}
 	</form>
 	<form action="/ama/members/" method="POST">
 		{% csrf_token %}
 		{% if user.is_authenticated %}
-		<input type="submit" value="Delete Member:" name="deleteMember">
+		<input type="submit" class="button" value="Delete Member:" name="deleteMember">
 		<input type="text" name="memberName" placeholder="Type in name of member">
 		{% else %}
-		<input type="submit" value="Delete Member" disabled>
+		<input type="submit" class="button button1Disabled" value="Delete Member" disabled>
 		{% endif %}
 	</form>
 	<!-- <form action="/ama/members/" method="GET">

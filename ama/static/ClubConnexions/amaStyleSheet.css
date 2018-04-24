@@ -23,7 +23,8 @@ div{
     cursor: pointer;
     font-family: Helvetica ;
     border: 2px solid Black;
-    transition-duration: 0.5s;
+    transition-duration: .5s;
+ 
 
    
     /*width: 175px;*/
@@ -39,6 +40,7 @@ div{
     color: Black;
     border: Red;
     border: 2px solid Red;
+
 }
 .button1Disabled{
     background-color: #ba3500;
@@ -62,6 +64,7 @@ a{
     padding-top:10px;
 }
 h1{
+    text-align: center;
     font-family: Helvetica;
     font-size: 40px;
     font-weight: bold; 

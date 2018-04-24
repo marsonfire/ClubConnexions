@@ -72,7 +72,7 @@
 <div>
 	<form action="{% url 'ama:add-event' %}">
 		{% if user.is_authenticated %}
-		<input type="submit" value="Add Event">
+		<input type="submit" class="button" value="Add Event">
 		{% else %}
 		<!--<input type="submit" value="Add Event" disabled >-->
 		{% endif %}
@@ -80,7 +80,7 @@
 	<form action="/ama/calendar/" method="POST">
 		{% csrf_token %}
 		{% if user.is_authenticated %}
-		<input type="submit" value="Delete Event:" name="deleteEvent">
+		<input type="submit" class="button" value="Delete Event:" name="deleteEvent">
 		<input type="text" name="eventName" placeholder="Type in name of event">
 		{% else %}
 		<!--<input type="submit" value="Delete Event:" disabled>-->
@@ -88,7 +88,7 @@
 	</form>
 	<form action="/ama/calendar/" method="GET">
 		{% if user.is_authenticated %}
-		<input type="submit" value="Delete All Events" name="deleteAllEvents">
+		<input type="submit" class="button" value="Delete All Events" name="deleteAllEvents">
 		{% else %}
 		<!--<input type="submit" value="Delete All Events" disabled>-->
 		{% endif %}
@@ -96,7 +96,7 @@
 </div>
 <div>
 <p style="text-align: center;">
-	
+
 	{% for e in allEvents %}
 		<b>Name:</b> {{e.eventName}}<br>
 		<b>Date:</b> {{e.eventDate}}<br>
