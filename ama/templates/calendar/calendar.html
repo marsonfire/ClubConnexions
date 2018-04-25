@@ -81,7 +81,7 @@
 		{% csrf_token %}
 		{% if user.is_authenticated %}
 		<input type="submit" class="button" value="Delete Event:" name="deleteEvent">
-		<input type="text" name="eventName" placeholder="Type in name of event">
+		<input type="text" class="textbox" name="eventName" placeholder="Type in name of event">
 		{% else %}
 		<!--<input type="submit" value="Delete Event:" disabled>-->
 		{% endif %}

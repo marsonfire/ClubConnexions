@@ -8,44 +8,53 @@ div{
 
 }
 .button {
-    background-color:Green; /*#87ceeb;*/
-    border: none;
+    background-color:#38ACEC; /*#87ceeb;*/
     color: Black;
-    padding: 30px 30px;
+    padding: 20px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 24px;
-    margin-right:1%; 
-    margin-left:0px;
+    font-size: 15px;
+    margin-right:0%; 
+    margin-left:0%;
     margin-top:10px;
     margin-bottom:0px;
     cursor: pointer;
     font-family: Helvetica ;
     border: 2px solid Black;
     transition-duration: .5s;
- 
+    width: 250px;
 
-   
-    /*width: 175px;*/
+}
+.textbox{
+
+    margin-right:5px; 
+    margin-left:5px;
+    margin-top:10px;
+    margin-bottom:0px;
+    background-color: white;
+    font-size: 15px;
+    padding: 10px 10px;
+    font-family: Helvetica;
+
 }
 .button1{
-    background-color: #ff4800; /*What Scott had before: #e23bf6;*/
+    background-color: #306EFF; /*What Scott had before: #e23bf6;*/
     font-size: 24px;
     padding: 10px 20px;
+    width: 200;
 
 }
 .button:hover {
     background-color: White; 
     color: Black;
-    border: Red;
-    border: 2px solid Red;
+    border: Blue;
+    border: 2px solid Blue;
 
 }
 .button1Disabled{
-    background-color: #ba3500;
-    font-size: 24px;
-    padding: 10px 30px;
+    transition-duration: 100000s;
+    background-color: grey;
 }
 
 .bottom{
@@ -72,7 +81,7 @@ h1{
     background-color: #d0ccff;
     margin-top: 10px;
     margin-left: 10%;
-    margin-right: 10%;
+    margin-right:10%;
     margin-bottom: 10px;
     padding-top:10px ;
     padding-left:10px;

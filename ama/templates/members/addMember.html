@@ -69,9 +69,9 @@ div{
 	<p>Fill in text boxes below to add a member.</p>
 	<form action="/ama/members/" method="POST">
 		{% csrf_token %}
-	  	First Name: <input type="text" name="memberFirstName" required><br><br>
-	  	Last Name: <input type="text" name="memberLastName" required><br><br>
-		Email: <input type="email" name="memberEmail" required><br><br>
+	  	First Name: <input type="text" class="textbox" name="memberFirstName" required><br><br>
+	  	Last Name: <input type="text" class="textbox" name="memberLastName" required><br><br>
+		Email: <input type="email" class="textbox" name="memberEmail" required><br><br>
 		All Card Number: <input type="text" name="memberID" required><br><br>
 	  	<input type="submit" class="button" name="addMember" value="Create and add Member">
 	</form> 

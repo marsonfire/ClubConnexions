@@ -80,7 +80,7 @@
 		{% csrf_token %}
 		{% if user.is_authenticated %}
 		<input type="submit"  class="button" value="Delete Officer:" name="deleteOfficer">
-		<input type="text" name="officerName" placeholder="Type in name of officer">
+		<input type="text" class="textbox"  name="officerName" placeholder="Type in name of officer">
 		{% else %}
 		<!--<input type="submit" value="Delete Officer" disabled>-->
 		{% endif %}

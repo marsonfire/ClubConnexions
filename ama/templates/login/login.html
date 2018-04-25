@@ -7,13 +7,14 @@
 	<title>Admin Login Page</title>
 
 </head>
-<body>
+<div>
 
 
-<img src="https://i.imgur.com/oIz18pg.png" width="200" height="200" class="center"> 
-</body>
+<img src="https://i.imgur.com/oIz18pg.png" width="100" height="100" class="center"> 
+</div>
 
 <h1>Admin Login </h1>
+
 <div >
 
 {% if user.is_authenticated %}
@@ -56,6 +57,7 @@
 	</form> 
 	{% endif %}
 </div>
+<body>
 
 <div class="center">
 <form action="{% url 'ama:password' %}">
@@ -93,6 +95,7 @@
 </form> -->
 </div>
 
+</body>
 
 
 </html>

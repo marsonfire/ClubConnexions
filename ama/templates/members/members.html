@@ -81,7 +81,7 @@
 		{% csrf_token %}
 		{% if user.is_authenticated %}
 		<input type="submit" class="button" value="Delete Member:" name="deleteMember">
-		<input type="text" name="memberName" placeholder="Type in name of member">
+		<input type="text" class="textbox"  name="memberName" placeholder="Type in name of member">
 		{% else %}
 		<input type="submit" class="button button1Disabled" value="Delete Member" disabled>
 		{% endif %}
