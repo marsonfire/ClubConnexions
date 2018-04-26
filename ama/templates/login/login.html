@@ -60,10 +60,15 @@
 <body>
 <br>
 <div class="center">
-<form action="{% url 'ama:password' %}">
 
-	<input type="submit" class="button" value="Login (Admin Only)"> 
+{% if user.is_authenticated %}
+<form action="{% url 'ama:password' %}">
+<input type="submit" class="button button1Disabled" value="Login (you are already logged in)" disabled>
+{% else %}
+<form action="{% url 'ama:password' %}">
+<input type="submit" class="button" value="Login (Admin Only)"> 
 	<!-- <a href="password" class="button" >Login (Admin Only)</a> -->
+{% endif %}
 </form>
 <form action="/ama/login/" method="POST">
 	{% csrf_token %}
