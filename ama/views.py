@@ -21,7 +21,10 @@ def home(request):
 	return render(request, 'home/home.html')
 
 def editHome(request):
-	return render(request, 'home/editHome.html')
+	if(request.user.is_authenticated):
+		return render(request,'home/editHome.html')
+	else:
+		return redirect('/ama/home')
 
 def calendar(request):
 	allEvents = Event.objects.all()
@@ -49,7 +52,10 @@ def calendar(request):
 	return render(request, 'calendar/calendar.html', context)
 
 def event(request):
-	return render(request, 'calendar/event.html')
+	if(request.user.is_authenticated):
+		return render(request,'calendar/event.html')
+	else:
+		return redirect('/ama/home')
 
 def documents(request):
 	return render(request, 'documents/documents.html')
@@ -79,55 +85,67 @@ def officers(request):
 	return render(request, 'officers/officers.html', context)
 
 def addOfficer(request):
-	return render(request, 'officers/addOfficer.html')
+	if(request.user.is_authenticated):
+		return render(request,'officers/addOfficer.html')
+	else:
+		return redirect('/ama/home')
 
 def members(request):
-	allMembers = Members.objects.all()
-	if(request.POST.get('addMember')):
-		memberFirstName = request.POST.get('memberFirstName', None)
-		memberLastName = request.POST.get('memberLastName', None)
-		memberEmail = request.POST.get('memberEmail', None)
-		memberID = request.POST.get('memberID', None)
-		email = request.POST.get('email', None)
-		allCardNumber = request.POST.get('allCardNumber', None)
-		m = Members.objects.create(memberFirstName=memberFirstName, memberLastName=memberLastName, memberEmail=memberEmail, memberID=memberID)
+	if(request.user.is_authenticated):
 		allMembers = Members.objects.all()
-		context = {'m':m, 'allMembers':allMembers}
-		return render(request, 'members/members.html', context)
-	elif(request.POST.get('deleteMember')):
-		memberName = request.POST.get('memberName', None).strip()
-		for m in allMembers:
-			memberObjName = m.memberFirstName + " " + m.memberLastName
-			if(memberName == memberObjName):
+		if(request.POST.get('addMember')):
+			memberFirstName = request.POST.get('memberFirstName', None)
+			memberLastName = request.POST.get('memberLastName', None)
+			memberEmail = request.POST.get('memberEmail', None)
+			memberID = request.POST.get('memberID', None)
+			email = request.POST.get('email', None)
+			allCardNumber = request.POST.get('allCardNumber', None)
+			m = Members.objects.create(memberFirstName=memberFirstName, memberLastName=memberLastName, memberEmail=memberEmail, memberID=memberID)
+			allMembers = Members.objects.all()
+			context = {'m':m, 'allMembers':allMembers}
+			return render(request, 'members/members.html', context)
+		elif(request.POST.get('deleteMember')):
+			memberName = request.POST.get('memberName', None).strip()
+			for m in allMembers:
+				memberObjName = m.memberFirstName + " " + m.memberLastName
+				if(memberName == memberObjName):
+					m.delete()
+					return redirect('/ama/members/')
+		elif(request.GET.get('deleteAllMembers')):
+			for m in allMembers:
 				m.delete()
-				return redirect('/ama/members/')
-	elif(request.GET.get('deleteAllMembers')):
-		for m in allMembers:
-			m.delete()
-		return redirect('/ama/members')
-	elif(request.POST.get('sendNotification')):
-		subject = request.POST.get('subject', None)
-		message = request.POST.get('message', None)
-		sender = settings.EMAIL_HOST_USER
-		# recipients = ['schatzk@xavier.edu']
-		allMembers = Members.objects.all()
-		for m in allMembers:
-			email = m.memberEmail
-			send_mail(subject,message,sender,[email], fail_silently=False)
+			return redirect('/ama/members')
+		elif(request.POST.get('sendNotification')):
+			subject = request.POST.get('subject', None)
+			message = request.POST.get('message', None)
+			sender = settings.EMAIL_HOST_USER
+			# recipients = ['schatzk@xavier.edu']
+			allMembers = Members.objects.all()
+			for m in allMembers:
+				email = m.memberEmail
+				send_mail(subject,message,sender,[email], fail_silently=False)
 		
-		# from_email = settings.EMAIL_HOST_USER
-		# to_list = ['kkmarie62@gmail.com']
-		# send_mail(subject, message, from_email, to_list, fail_silently=True)
+			# from_email = settings.EMAIL_HOST_USER
+			# to_list = ['kkmarie62@gmail.com']
+			# send_mail(subject, message, from_email, to_list, fail_silently=True)
 
-		return render(request, 'members/members.html')
-	context = {'allMembers':allMembers}
-	return render(request, 'members/members.html', context)
+			return render(request, 'members/members.html')
+		context = {'allMembers':allMembers}
+		return render(request, 'members/members.html', context)
+	else:
+		return redirect('/ama/home')
 
 def addMember(request):
-	return render(request, 'members/addMember.html')
+	if(request.user.is_authenticated):
+		return render(request,'members/addMember.html')
+	else:
+		return redirect('/ama/home')
 
 def sendNotification(request):
-	return render(request, 'members/sendNotification.html')
+	if(request.user.is_authenticated):
+		return render(request,'members/sendNotification.html')
+	else:
+		return redirect('/ama/home')
 
 def login(request):
 	if(request.POST.get('logout')):
@@ -142,9 +160,12 @@ def password(request):
 		user = authenticate(request, username=username, password=password)
 		if(user is not None):
 			auth_login(request, user)
-			return redirect('/ama/login/password')
+			return redirect('/ama/home')
 	return render(request, 'login/password.html')
 
 def changePassword(request):
-	return render(request, 'login/changePassword.html')
+	if(request.user.is_authenticated):
+		return render(request,'login/changePassword.html')
+	else:
+		return redirect('/ama/home')
                 
