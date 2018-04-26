@@ -106,24 +106,20 @@ def members(request):
 			m.delete()
 		return redirect('/ama/members')
 	elif(request.POST.get('sendNotification')):
-		# subject = request.POST.get('subject', None)
-		# message = request.POST.get('message', None)
-		# sender = 'schatzk@xavier.edu'
+		subject = request.POST.get('subject', None)
+		message = request.POST.get('message', None)
+		sender = settings.EMAIL_HOST_USER
 		# recipients = ['schatzk@xavier.edu']
-		# # allMembers = Members.objects.all()
-		# # for m in allMembers:
-		# # 	reipients.append(m.memberEmail)
-		# send_mass_mail((subject,message,sender,recipients), fail_silently=False)
-		# email = EmailMessage('subject','message',to=['schatzk@xavier.edu'])
-		# email.send()
+		allMembers = Members.objects.all()
+		for m in allMembers:
+			email = m.memberEmail
+			send_mail(subject,message,sender,[email], fail_silently=False)
+		
+		# from_email = settings.EMAIL_HOST_USER
+		# to_list = ['kkmarie62@gmail.com']
+		# send_mail(subject, message, from_email, to_list, fail_silently=True)
 
-		subject = 'test'
-		message = 'please work'
-		from_email = settings.EMAIL_HOST_USER
-		to_list = ['kkmarie62@gmail.com']
-		send_mail(subject, message, from_email, to_list, fail_silently=True)
-
-		return render(request, 'members/members.html', context)
+		return render(request, 'members/members.html')
 	context = {'allMembers':allMembers}
 	return render(request, 'members/members.html', context)
 
