@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.conf import settings
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as auth_login
 from django.core.mail import send_mail
@@ -108,13 +109,20 @@ def members(request):
 		# subject = request.POST.get('subject', None)
 		# message = request.POST.get('message', None)
 		# sender = 'schatzk@xavier.edu'
-		# recipients = ['schatzk@xavier.edu','murphyj24@xavier.edu']
+		# recipients = ['schatzk@xavier.edu']
 		# # allMembers = Members.objects.all()
 		# # for m in allMembers:
 		# # 	reipients.append(m.memberEmail)
 		# send_mass_mail((subject,message,sender,recipients), fail_silently=False)
-		email = EmailMessage('subject','message',to=['schatzk@xavier.edu','murphyj24@xavier.edu'])
-		email.send()
+		# email = EmailMessage('subject','message',to=['schatzk@xavier.edu'])
+		# email.send()
+
+		subject = 'test'
+		message = 'please work'
+		from_email = settings.EMAIL_HOST_USER
+		to_list = ['kkmarie62@gmail.com']
+		send_mail(subject, message, from_email, to_list, fail_silently=True)
+
 		return render(request, 'members/members.html', context)
 	context = {'allMembers':allMembers}
 	return render(request, 'members/members.html', context)
