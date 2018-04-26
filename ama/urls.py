@@ -14,6 +14,7 @@ urlpatterns = [
     path('officers/add-officer', views.addOfficer, name = 'add-officer'),
     path('members/', views.members, name = 'members'),
     path('members/add-member', views.addMember, name = 'add-member'),
+    path('members/send-notification', views.sendNotification, name = 'send-notification'),
     path('login/', views.login, name = 'login'),
     path('login/password', views.password, name= 'password'),
     path('login/changePassword', views.changePassword, name = 'changePassword'),

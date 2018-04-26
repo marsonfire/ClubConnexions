@@ -70,7 +70,7 @@
 </div>
 <br>
 <div>
-<form action="{% url 'ama:add-member' %}">
+	<form action="{% url 'ama:add-member' %}">
 		{% if user.is_authenticated %}
 		<input type="submit" class="button" value="Add Member">
 		{% else %}
@@ -102,5 +102,14 @@
 		<b>ID Number:</b> {{m.memberID}}<br><br>
 	{% endfor %}
 </p>
+<div>
+	<form action="{% url 'ama:send-notification' %}">
+		{% if user.is_authenticated %}
+		<input type="submit" class="button" value="Send Notification">
+		{% else %}
+		<input type="submit" class="button button1Disabled" value="Send Notification" disabled>
+		{% endif %}
+	</form>
+</div>
 </body>
 </html>

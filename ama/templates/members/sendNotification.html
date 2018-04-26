@@ -1,0 +1,112 @@
+{% load static %}
+
+<html>
+<style>
+div{
+	text-align: center;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+<head>
+	<link rel="stylesheet" href="{% static 'ClubConnexions/amaStyleSheet.css' %}">
+	<title>Send Notification</title>
+</head>
+<body>
+</body>
+</html>
+
+<img src="https://i.imgur.com/oIz18pg.png" width="100" height="100" class="center"> 
+
+<h1>Send Notification</h1>
+<div>
+
+{% if user.is_authenticated %}
+	<form action="{% url 'ama:home' %}">
+		<input type ="submit" class="button button1" value="Home"/>
+	</form>
+	<form action="{% url 'ama:calendar' %}">
+		<input type="submit" class="button button1" value="Calendar">
+	</form>
+	<form action="{% url 'ama:documents' %}">
+		<input type="submit" class="button button1" value="Documents">
+	</form>
+	<form action="{% url 'ama:officers' %}">
+		<input type="submit" class="button button1" value="Club Officers">
+	</form>
+	<form action="{% url 'ama:members' %}">
+		<input type="submit" class="button button1" value="Club Members">
+	</form>
+	<form action="{% url 'ama:login' %}">
+		<input type="submit" class="button button1" value="Admin Login">
+	</form>
+	{% else %}
+	<form action="{% url 'ama:home' %}">
+		<input type ="submit" class="button button1" value="Home"/>
+	</form>
+	<form action="{% url 'ama:calendar' %}">
+		<input type="submit" class="button button1" value="Calendar">
+	</form>
+	<form action="{% url 'ama:documents' %}">
+		<input type="submit" class="button button1" value="Documents">
+	</form>
+	<form action="{% url 'ama:officers' %}">
+		<input type="submit" class="button button1" value="Club Officers">
+	</form>
+	<!--<form action="{% url 'ama:members' %}">
+		<input type="submit" class="button button1" value="Club Members" disabled>
+	</form>-->
+	<form action="{% url 'ama:login' %}">
+		<input type="submit" class="button button1" value="Admin Login">
+	</form>
+	{% endif %}
+</div>
+<br>
+<div>
+	<p>Fill in the desired content of the notification</p>
+	<form action="/ama/members/" method="POST">
+		{% csrf_token %}
+	  	Subject: <input type="text" class="textbox" name="subject" required><br><br>
+	  	Message: <br>
+	  	<textarea name ="message" cols="80" rows="15"> </textarea><br><br>
+	  	<input type="submit" class="button" name="send notification" value="Send Notification to All Members">
+	</form> 
+</div>
+</body>
+</html>
+
+	<!-- <form style="display: inline;" action="{% url 'ama:home' %}">
+		<input type ="submit" value="Home"/>
+	</form>
+	<form style="display: inline;" action="{% url 'ama:calendar' %}">
+		<input type="submit" value="Calendar">
+	</form>
+	<form style="display: inline;" action="{% url 'ama:documents' %}">
+		<input type="submit" value="Documents">
+	</form>
+	<form style="display: inline;" action="{% url 'ama:officers' %}">
+		<input type="submit" value="Club Officers">
+	</form>
+	<form style="display: inline;" action="{% url 'ama:members' %}">
+		<input type="submit" value="Club Members">
+	</form>
+	<form style="display: inline;" action="{% url 'ama:login' %}">
+		<input type="submit" value="Admin Login">
+	</form>
+</div>
+<br>
+<div>
+	<p>Fill in the desired content of the notification.</p>
+	<form action="/ama/members/" method="POST">
+		{% csrf_token %}
+	  	Subject: <input type="text" name="subject" required><br><br>
+	  	Message: <br>
+	  	<textarea name="message" cols="80" rows="15"> </textarea><br><br>
+	  	<input type="submit" name="send notification" value="Send Notification to All Members">
+	</form> 
+</div>
+</body>
+</html> -->
